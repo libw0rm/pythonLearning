@@ -36,4 +36,10 @@ wizzard_list.append('болиголов')
 wizzard_list.append('болотный газ')
 print(wizzard_list)
 
+#  ! [iPFK_42] Удаление элементов из списка
+
+print(wizzard_list[5])
+del wizzard_list[5]
+print(wizzard_list)
+
 
