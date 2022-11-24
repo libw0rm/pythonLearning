@@ -21,9 +21,19 @@
 # print(myList)
 
 #  !{41}
-numbers = [1, 2, 3, 4, 5]
-strings = ['хватит', 'циферки', 'считать']
-mySecondList = [numbers, strings]
-print(mySecondList)
+# numbers = [1, 2, 3, 4, 5]
+# strings = ['хватит', 'циферки', 'считать']
+# mySecondList = [numbers, strings]
+# print(mySecondList)
+
+# ! {41} Добавление элементов в список
+
+wizzard_list = ['Паучьи лапки', 'жабий палец', 'глаз тритона', 'крыло летучей мыши', 'жир слизня', 'перхоть змеи']
+
+wizzard_list.append('медвежий коготь')
+wizzard_list.append('мандрагора')
+wizzard_list.append('болиголов')
+wizzard_list.append('болотный газ')
+print(wizzard_list)
 
 
