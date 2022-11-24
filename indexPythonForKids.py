@@ -1,4 +1,4 @@
-# !{39} Списки мощнее строк
+# # !{39} Списки мощнее строк
 
 # wizzard_list_str = 'Паучьи лапки, жабий палец, глаз тритона, крыло летучей мыши, жир слизня, перхоть змеи'
 
@@ -20,13 +20,13 @@
 # print(numbersAndStrings)
 # print(myList)
 
-#  !{41}
+# # ! [iPFK_41]
 # numbers = [1, 2, 3, 4, 5]
 # strings = ['хватит', 'циферки', 'считать']
 # mySecondList = [numbers, strings]
 # print(mySecondList)
 
-# ! {41} Добавление элементов в список
+# # ! [iPFK_41] Добавление элементов в список
 
 # wizzard_list = ['Паучьи лапки', 'жабий палец', 'глаз тритона', 'крыло летучей мыши', 'жир слизня', 'перхоть змеи']
 
@@ -36,13 +36,13 @@
 # wizzard_list.append('болотный газ')
 # print(wizzard_list)
 
-#  ! [iPFK_42] "Удаление элементов из списка"
+# # ! [iPFK_42] "Удаление элементов из списка"
 
 # print(wizzard_list[5])
 # del wizzard_list[5]
 # print(wizzard_list)
 
-# ! [iPFK_42] "Списковая арифметика"
+# # ! [iPFK_42] "Списковая арифметика"
 
 # list1 = [1, 2, 3, 4, 5]
 # list2 = ['я', 'забрался', 'под', 'кровать']
@@ -54,15 +54,15 @@
 # print(list5)
 # print(list1 * 5)
 
-# ! [iPFK_44] "Кортежи"
+# # ! [iPFK_44] "Кортежи"
 
 # fibs = (0, 1, 1, 2, 3)
 # print(fibs)
 # print(fibs[3])
 
-# ! [iPFK_45] "Словари в Python — не для поиска слов"
+# # ! [iPFK_45] "Словари в Python — не для поиска слов"
 
-# список
+# # список
 # favoriteSportsList = [
 #     'Ральф Уильямс, Футбол',
 #     'Майкл Типпетт, Баскетбол',
@@ -71,27 +71,27 @@
 #     'Этель Смит, Бадминтон',
 #     'Фрэнк Бридж, Регби'
 # ]
-# print(favoriteSportsList[4])
+# # print(favoriteSportsList[4])
 
-#  словарь
-favoriteSportsList = {
-    'Ральф Уильямс': 'Футбол',
-    'Майкл Типпетт': 'Баскетбол',
-    'Эдвард Элгар': 'Бейсбол',
-    'Ребекка Кларк': 'Нетбол',
-    'Этель Смит': 'Бадминтон',
-    'Фрэнк Бридж': 'Регби'
-}
-print(favoriteSportsList)
-print(favoriteSportsList['Ральф Уильямс'])
+# #  словарь
+# favoriteSportsList = {
+#     'Ральф Уильямс': 'Футбол',
+#     'Майкл Типпетт': 'Баскетбол',
+#     'Эдвард Элгар': 'Бейсбол',
+#     'Ребекка Кларк': 'Нетбол',
+#     'Этель Смит': 'Бадминтон',
+#     'Фрэнк Бридж': 'Регби'
+# }
+# print(favoriteSportsList)
+# print(favoriteSportsList['Ральф Уильямс'])
 
-#  удалим ключ 'Этель Смит'
-del favoriteSportsList['Этель Смит']
-print(favoriteSportsList)
+# #  удалим ключ 'Этель Смит'
+# del favoriteSportsList['Этель Смит']
+# print(favoriteSportsList)
 
-#  заменим значение у ключа 'Ральф Уильямс'
-favoriteSportsList['Ральф Уильямс'] = 'Хоккей на льду'
-print(favoriteSportsList)
+# #  заменим значение у ключа 'Ральф Уильямс'
+# favoriteSportsList['Ральф Уильямс'] = 'Хоккей на льду'
+# print(favoriteSportsList)
 
 
 
