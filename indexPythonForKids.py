@@ -28,18 +28,28 @@
 
 # ! {41} Добавление элементов в список
 
-wizzard_list = ['Паучьи лапки', 'жабий палец', 'глаз тритона', 'крыло летучей мыши', 'жир слизня', 'перхоть змеи']
+# wizzard_list = ['Паучьи лапки', 'жабий палец', 'глаз тритона', 'крыло летучей мыши', 'жир слизня', 'перхоть змеи']
 
-wizzard_list.append('медвежий коготь')
-wizzard_list.append('мандрагора')
-wizzard_list.append('болиголов')
-wizzard_list.append('болотный газ')
-print(wizzard_list)
+# wizzard_list.append('медвежий коготь')
+# wizzard_list.append('мандрагора')
+# wizzard_list.append('болиголов')
+# wizzard_list.append('болотный газ')
+# print(wizzard_list)
 
 #  ! [iPFK_42] Удаление элементов из списка
 
-print(wizzard_list[5])
-del wizzard_list[5]
-print(wizzard_list)
+# print(wizzard_list[5])
+# del wizzard_list[5]
+# print(wizzard_list)
 
+# ! {42} Списковая арифметика
 
+list1 = [1, 2, 3, 4, 5]
+list2 = ['я', 'забрался', 'под', 'кровать']
+print(list1 + list2)
+
+list3 = [1, 2, 3, 4]
+list4 = ['я', 'мечтаю', 'о', 'пломбире']
+list5 = list3 + list4
+print(list5)
+print(list1 * 5)
