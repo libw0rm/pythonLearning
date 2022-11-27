@@ -41,14 +41,26 @@
 # else:
 #     print("Go away! I do not know you!")
 
+
 # # {Training_76}
+# inputName = input('Enter name: ') #Carol, Alice
+# inputAge = int(input('Enter age: ')) #11, 12
 
-inputName = input('Enter name: ')
-inputAge = int(input('Enter age: '))
+# if inputName == 'Alice':
+#     print("Hi, Alice.")
+# elif inputAge < 12:
+#     print("You're not Alice, kiddo")
+# else:
+#     print("You're neither Alice nor a little kid.")
 
-if inputName == 'Alice':
-    print("Hi, Alice.")
-elif inputAge < 12:
-    print("You're not Alice, kiddo")
-else:
-    print("You're neither Alice nor a little kid.")
+    
+# # {Training_80}
+# userName = ''
+# while userName != 'your name':
+#     print("Please type your name: ")
+#     userName = input()
+# else:
+#     print("Thank you!")
+
+
+# # 
