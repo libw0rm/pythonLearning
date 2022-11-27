@@ -1,2 +1,6 @@
+# системный macOS
 .DS_Store
+# системная JetBrains
 .idea/
+# Обучающие файлы в PDF
+ pdfFolder/
