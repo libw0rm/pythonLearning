@@ -63,4 +63,21 @@
 #     print("Thank you!")
 
 
-# # 
+# # [ATBF_81] Инструкция break
+# while True: #создание цикла, условие которого всегда True
+#     userName = input("Please type your name: ")
+#     if userName == 'your name':
+#         break
+# print("Thank you")
+
+
+# # {Training_81}
+# userName = ''
+# while True:
+#     print("Please type your name: ")
+#     userName = input()
+#     if userName == 'your name':
+#         break
+# print("Thank you!")
+
+
