@@ -1,4 +1,4 @@
-#Python 3.11
+# Python 3.11
 # АВТОМАТИЗАЦИЯ РУТИННЫХ ЗАДАЧ С ПОМОЩЬЮ PYTHON. 2-Е ИЗДАНИЕ
 # AUTOMATE THE BORING STUFF WITH PYTHON. 2ND EDITION
 
@@ -18,15 +18,37 @@
 #
 
 
-#  (52) "Ваша первая программа"
-print('Hello World!\n')
-# 
-print('What is your name?')
-myName = input()
-print('Nice to meet you, ' + myName, '\n')
-print('The length your name is: ')
-print(len(myName), ' letters', '\n')
-# 
-print('How old are you?')
-myAge = input()
-print('In a year you will be ' + str(int(myAge) + 1) + ' old', '\n')
+# #  (52) "Ваша первая программа"
+# print('Hello World!\n')
+# #
+# print('What is your name?')
+# myName = input()
+# print('Nice to meet you, ' + myName, '\n')
+# print('The length your name is: ')
+# print(len(myName), ' letters', '\n')
+# #
+# print('How old are you?')
+# myAge = input()
+# print('In a year you will be ' + str(int(myAge) + 1) + ' old', '\n')
+
+
+# # {Training_70}
+# userName = input("Enter your name: ")
+# if userName == "Darkness":
+#     print("Hello, " + userName + "! My old friend 🧌")
+# elif userName != "Darkness":
+#     print("🧟 Nobody's Home")
+# else:
+#     print("Go away! I do not know you!")
+
+# # {Training_76}
+
+inputName = input('Enter name: ')
+inputAge = int(input('Enter age: '))
+
+if inputName == 'Alice':
+    print("Hi, Alice.")
+elif inputAge < 12:
+    print("You're not Alice, kiddo")
+else:
+    print("You're neither Alice nor a little kid.")
