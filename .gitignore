@@ -4,3 +4,5 @@
 .idea/
 # Обучающие файлы в PDF
  pdfFolder/
+# Обучающие файлы в PDF
+ pdfFolder/*
