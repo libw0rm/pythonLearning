@@ -81,3 +81,17 @@
 # print("Thank you!")
 
 
+# [ATBF_83] Swordfish
+while True:
+    # userName = input("How are you? ") # Ввод будет на той же строке
+    print("How are you?")
+    userName = input()
+    if userName != "Joe": 
+        continue #Если не "Joe", то возвращаемся в 1 инструкцию
+    print("Hello, Joe. What is the password? (It is a fish.)")
+    userPassword = input()
+    if userPassword == "swordfish":
+        break
+print("Access granted.")
+
+
