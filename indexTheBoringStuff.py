@@ -121,9 +121,25 @@
 # print("I go to the sleep")
 
 
-# [ATBF_86] fiveTimes
-print("My name is")
-for i in range(5):
-    print("Jimmy Five Times (" + str(i) + ")") #Нумерация цикла с (0)
-    # print("Jimmy Five Times (" + str(i+1) + ")") #Нумерация цикла с (1)
+# # [ATBF_86] fiveTimes
+# print("My name is")
+# for i in range(5):
+#     print("Jimmy Five Times (" + str(i) + ")") #Нумерация цикла с (0)
+#     # print("Jimmy Five Times (" + str(i+1) + ")") #Нумерация цикла с (1)
+
+
+# # [ATBF_87] 5050
+# total = 0
+# for i in range(101):
+#     total = total + i
+# print(total)
+
+
+# # # [ATBF_88] fiveTimes (While)
+# print("My name is")
+# i = 0
+# while i < 5:
+#     # i = i + 1 # Нумерация с (1)
+#     print("Jimmy Five Times (" + str(i) + ")")
+#     i = i + 1 # Нумерация с (0)
 
