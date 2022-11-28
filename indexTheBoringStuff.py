@@ -81,17 +81,42 @@
 # print("Thank you!")
 
 
-# [ATBF_83] Swordfish
-while True:
-    # userName = input("How are you? ") # Ввод будет на той же строке
-    print("How are you?")
-    userName = input()
-    if userName != "Joe": 
-        continue #Если не "Joe", то возвращаемся в 1 инструкцию
-    print("Hello, Joe. What is the password? (It is a fish.)")
-    userPassword = input()
-    if userPassword == "swordfish":
-        break
-print("Access granted.")
+# # [ATBF_83] Swordfish
+# while True:
+#     # userName = input("How are you? ") # Ввод будет на той же строке
+#     print("How are you?")
+#     userName = input()
+#     if userName != "Joe": 
+#         continue #Если не "Joe", то возвращаемся в 1 инструкцию
+#     print("Hello, Joe. What is the password? (It is a fish.)")
+#     userPassword = input()
+#     if userPassword == "swordfish":
+#         break
+# print("Access granted.")
 
+
+# # [ATBF_85] Boolean
+# print(bool(0.0))        #False
+# print(bool(0))          #False
+# print(bool(''))         #False
+# print(bool(""))         #False
+# print(bool(-1))         #True
+# print(bool(1))          #True
+# print(bool(True))       #True
+# print(bool(False))      #False
+# print(bool(not False))  #True
+# print(bool(not 0))      #True
+# print(bool(not ''))     #True
+
+
+# # [ATBF_85] 
+# userName = ''
+# while not userName:
+#     print("Enter your name: ")
+#     userName = input()
+# print("How many guests will there be?")
+# numOfGuest = int(input())
+# if numOfGuest:
+#     print("OK! Goodlike!")
+# print("I go to the sleep")
 
