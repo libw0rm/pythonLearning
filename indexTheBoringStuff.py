@@ -195,71 +195,115 @@
 #     print('Та-дааам! Всё, котлетки кончились! Добро пожаловать на костёр 😈 Было загадано число ' + str(secretNumber))
 
 
-# [ATBF_94] Игра RPC Game
-import random, sys
+# # [ATBF_94] Игра RPC Game
+# import random, sys
 
-print('КАМЕНЬ, НОЖНИЦЫ, БУМАГА')
+# print('КАМЕНЬ, НОЖНИЦЫ, БУМАГА')
 
-wins = 0    # переменная для победы 
-losses = 0  # переменная для поражения
-ties = 0    # переменная для ничьих
+# wins = 0    # переменная для победы 
+# losses = 0  # переменная для поражения
+# ties = 0    # переменная для ничьих
 
-    # Главный цикл игры
-while True:
-    print('%s wins, %s losses, %s ties\n' % (wins, losses, ties))
+#     # Главный цикл игры
+# while True:
+#     print('%s wins, %s losses, %s ties\n' % (wins, losses, ties))
     
-    # Цикл выбора хода 
-    while True:
-        print('Выбери ход: (к)амень, (н)ожницы, (б)умага или ' + \
-                '(в)ыход')
-        playerMove = input()
-        if playerMove == 'в':
-            sys.exit() # выход из программы
-        if playerMove == 'к' \
-        or playerMove == 'н' \
-        or playerMove == 'б':
-            break # выход из цикла ввода
-        print('Введи "к", "н", "б", "в"')
+#     # Цикл выбора хода 
+#     while True:
+#         print('Выбери ход: (к)амень, (н)ожницы, (б)умага или ' + \
+#                 '(в)ыход')
+#         playerMove = input()
+#         if playerMove == 'в':
+#             sys.exit() # выход из программы
+#         if playerMove == 'к' \
+#         or playerMove == 'н' \
+#         or playerMove == 'б':
+#             break # выход из цикла ввода
+#         print('Введи "к", "н", "б", "в"')
     
-    # Отображение выбора пользователя 
-    if playerMove == 'к':
-        print('КАМЕНЬ и ...')
-    if playerMove == 'н':
-        print('НОЖНИЦЫ и ...')
-    if playerMove == 'б':
-        print('БУМАГА и ...')
+#     # Отображение выбора пользователя 
+#     if playerMove == 'к':
+#         print('КАМЕНЬ и ...')
+#     if playerMove == 'н':
+#         print('НОЖНИЦЫ и ...')
+#     if playerMove == 'б':
+#         print('БУМАГА и ...')
 
-    # Отображение выбора системы
-    randomNumber = random.randint(1, 3)
-    if randomNumber == 1:
-        computerMove = 'к'
-        print('🗿 КАМЕНЬ')
-    if randomNumber == 2:
-        computerMove = 'н'
-        print('✂️ НОЖНИЦЫ')
-    if randomNumber == 3:
-        computerMove = 'б'
-        print('🧻 БУМАГА')
+#     # Отображение выбора системы
+#     randomNumber = random.randint(1, 3)
+#     if randomNumber == 1:
+#         computerMove = 'к'
+#         print('🗿 КАМЕНЬ')
+#     if randomNumber == 2:
+#         computerMove = 'н'
+#         print('✂️ НОЖНИЦЫ')
+#     if randomNumber == 3:
+#         computerMove = 'б'
+#         print('🧻 БУМАГА')
     
-    # Отображение и учёт результатов
-    if playerMove == computerMove:
-        print('🤝 Ничья!')
-        ties = ties + 1
-    elif playerMove == 'к' and computerMove == 'н':
-        print('🥳 Вы выиграли')
-        wins = wins + 1
-    elif playerMove == 'б' and computerMove == 'к':
-        print('🤩 Вы выиграли')
-        wins = wins + 1
-    elif playerMove == 'н' and computerMove == 'б':
-        print('🤪 Вы выиграли')
-        wins = wins + 1
-    elif playerMove == 'к' and computerMove == 'б':
-        print('😳 Вы проиграли!')
-        losses = losses + 1
-    elif playerMove == 'б' and computerMove == 'н':
-        print('👻 Вы проиграли!')
-        losses = losses + 1
-    elif playerMove == 'н' and computerMove == 'к':
-        print('😱 Вы проиграли!')
-        losses = losses + 1
+#     # Отображение и учёт результатов
+#     if playerMove == computerMove:
+#         print('🤝 Ничья!')
+#         ties = ties + 1
+#     elif playerMove == 'к' and computerMove == 'н':
+#         print('🥳 Вы выиграли')
+#         wins = wins + 1
+#     elif playerMove == 'б' and computerMove == 'к':
+#         print('🤩 Вы выиграли')
+#         wins = wins + 1
+#     elif playerMove == 'н' and computerMove == 'б':
+#         print('🤪 Вы выиграли')
+#         wins = wins + 1
+#     elif playerMove == 'к' and computerMove == 'б':
+#         print('😳 Вы проиграли!')
+#         losses = losses + 1
+#     elif playerMove == 'б' and computerMove == 'н':
+#         print('👻 Вы проиграли!')
+#         losses = losses + 1
+#     elif playerMove == 'н' and computerMove == 'к':
+#         print('😱 Вы проиграли!')
+#         losses = losses + 1
+
+        
+# # {Training_98-99}
+# # Контрольные вопросы. Задание 4
+# print(bool((5 > 4) and (3 == 5)), ': (5 > 4) and (3 == 5)')
+# print(bool(not (5 > 4)), ': not (5 > 4)')
+# print(bool((5 > 4) or (3 == 5)), ': (5 > 4) or (3 == 5)')
+# print(bool(not ((5 > 4) or (3 == 5))), ': not ((5 > 4) or (3 == 5))')
+# print(bool((True and True) and (True == False)), ': (True and True) and (True == False)')
+# print(bool((not False) or (not True)), ': (not False) or (not True)')
+# print(bool(True and False))
+# print(bool(True or False))
+
+
+# # 👽 Контрольные вопросы. Задание 9
+# import sys
+# 
+# while True:
+#     spam = input('Enter number or "e": ')
+#     if spam == 'e':
+#         # sys.exit()
+#         exit() # выход без импорта модуля
+#     if spam == "1":
+#         print("Hello")
+#     elif spam == "2":
+#         print("Howdy")
+#     else:
+#         print("Greetings!")
+#     # break # для однократного запуска программы
+
+# # 👽 Контрольные вопросы. Задание 12-13
+# for i in range (10):
+#     print(i)
+# for i in range (0, 10):
+#     print(i)
+# for i in range (0, 10, 1):
+#     print(i)
+
+# 👽 Контрольные вопросы. Задание 13
+i = 1
+while i <= 10:
+    print(i)
+    i += 1
+
