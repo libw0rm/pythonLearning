@@ -206,7 +206,7 @@ ties = 0    # переменная для ничьих
 
     # Главный цикл игры
 while True:
-    print('%s wins, %s losses, %s ties' % (wins, losses, ties))
+    print('%s wins, %s losses, %s ties\n' % (wins, losses, ties))
     
     # Цикл выбора хода 
     while True:
@@ -223,11 +223,11 @@ while True:
     
     # Отображение выбора пользователя 
     if playerMove == 'к':
-        print('Камень и ...')
+        print('КАМЕНЬ и ...')
     if playerMove == 'н':
-        print('Ножницы и ...')
+        print('НОЖНИЦЫ и ...')
     if playerMove == 'б':
-        print('Бумага и ...')
+        print('БУМАГА и ...')
 
     # Отображение выбора системы
     randomNumber = random.randint(1, 3)
@@ -243,26 +243,23 @@ while True:
     
     # Отображение и учёт результатов
     if playerMove == computerMove:
-        print('Ничья!')
+        print('🤝 Ничья!')
         ties = ties + 1
     elif playerMove == 'к' and computerMove == 'н':
-        print('Вы выиграли')
+        print('🥳 Вы выиграли')
         wins = wins + 1
     elif playerMove == 'б' and computerMove == 'к':
-        print('Вы выиграли')
+        print('🤩 Вы выиграли')
         wins = wins + 1
     elif playerMove == 'н' and computerMove == 'б':
-        print('Вы выиграли')
+        print('🤪 Вы выиграли')
         wins = wins + 1
     elif playerMove == 'к' and computerMove == 'б':
-        print('Вы проиграли!')
+        print('😳 Вы проиграли!')
         losses = losses + 1
     elif playerMove == 'б' and computerMove == 'н':
-        print('Вы проиграли!')
+        print('👻 Вы проиграли!')
         losses = losses + 1
     elif playerMove == 'н' and computerMove == 'к':
-        print('Вы проиграли!')
+        print('😱 Вы проиграли!')
         losses = losses + 1
-
-        
-        
