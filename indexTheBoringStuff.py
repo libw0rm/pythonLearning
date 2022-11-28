@@ -171,3 +171,27 @@
 #         sys.exit()
 
 
+# [ATBF_92] Игра "guessTheNumber"
+import random
+
+secretNumber = random.randint(1, 100)
+print('Я загадал число от 1 до 100') 
+# print(secretNumber) # cheatcode 😋
+
+for guessesTaken in range(1, 7): # Игроку даётся 6 попыток
+    print('⛳️ Попытка номер: ' + str(guessesTaken)) # Отображён счётчик попыток
+    print('Угадай число')
+    guess = int(input())
+
+    if guess < secretNumber:
+        print('>>> Мало\n')
+    elif guess > secretNumber:
+        print('>>> Много\n')
+    else:
+        break
+if guess == secretNumber:
+    print('Отлично! Число отгадано за ' + str(guessesTaken) + ' попыток!')
+else:
+    print('Та-дааам! Всё, котлетки кончились! Добро пожаловать на костёр 😈 Было загадано число ' + str(secretNumber))
+
+
