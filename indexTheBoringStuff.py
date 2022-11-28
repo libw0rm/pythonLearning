@@ -120,3 +120,10 @@
 #     print("OK! Goodlike!")
 # print("I go to the sleep")
 
+
+# [ATBF_86] fiveTimes
+print("My name is")
+for i in range(5):
+    print("Jimmy Five Times (" + str(i) + ")") #Нумерация цикла с (0)
+    # print("Jimmy Five Times (" + str(i+1) + ")") #Нумерация цикла с (1)
+
