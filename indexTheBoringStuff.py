@@ -171,27 +171,98 @@
 #         sys.exit()
 
 
-# [ATBF_92] Игра "guessTheNumber"
-import random
+# # [ATBF_92] Игра "guessTheNumber"
+# import random
 
-secretNumber = random.randint(1, 100)
-print('Я загадал число от 1 до 100') 
-# print(secretNumber) # cheatcode 😋
+# secretNumber = random.randint(1, 100)
+# print('Я загадал число от 1 до 100') 
+# # print(secretNumber) # cheatcode 😋
 
-for guessesTaken in range(1, 7): # Игроку даётся 6 попыток
-    print('⛳️ Попытка номер: ' + str(guessesTaken)) # Отображён счётчик попыток
-    print('Угадай число')
-    guess = int(input())
+# for guessesTaken in range(1, 7): # Игроку даётся 6 попыток
+#     print('⛳️ Попытка номер: ' + str(guessesTaken)) # Отображён счётчик попыток
+#     print('Угадай число')
+#     guess = int(input())
 
-    if guess < secretNumber:
-        print('>>> Мало\n')
-    elif guess > secretNumber:
-        print('>>> Много\n')
-    else:
-        break
-if guess == secretNumber:
-    print('Отлично! Число отгадано за ' + str(guessesTaken) + ' попыток!')
-else:
-    print('Та-дааам! Всё, котлетки кончились! Добро пожаловать на костёр 😈 Было загадано число ' + str(secretNumber))
+#     if guess < secretNumber:
+#         print('>>> Мало\n')
+#     elif guess > secretNumber:
+#         print('>>> Много\n')
+#     else:
+#         break
+# if guess == secretNumber:
+#     print('Отлично! Число отгадано за ' + str(guessesTaken) + ' попыток!')
+# else:
+#     print('Та-дааам! Всё, котлетки кончились! Добро пожаловать на костёр 😈 Было загадано число ' + str(secretNumber))
 
 
+# [ATBF_94] Игра RPC Game
+import random, sys
+
+print('КАМЕНЬ, НОЖНИЦЫ, БУМАГА')
+
+wins = 0    # переменная для победы 
+losses = 0  # переменная для поражения
+ties = 0    # переменная для ничьих
+
+    # Главный цикл игры
+while True:
+    print('%s wins, %s losses, %s ties' % (wins, losses, ties))
+    
+    # Цикл выбора хода 
+    while True:
+        print('Выбери ход: (к)амень, (н)ожницы, (б)умага или ' + \
+                '(в)ыход')
+        playerMove = input()
+        if playerMove == 'в':
+            sys.exit() # выход из программы
+        if playerMove == 'к' \
+        or playerMove == 'н' \
+        or playerMove == 'б':
+            break # выход из цикла ввода
+        print('Введи "к", "н", "б", "в"')
+    
+    # Отображение выбора пользователя 
+    if playerMove == 'к':
+        print('Камень и ...')
+    if playerMove == 'н':
+        print('Ножницы и ...')
+    if playerMove == 'б':
+        print('Бумага и ...')
+
+    # Отображение выбора системы
+    randomNumber = random.randint(1, 3)
+    if randomNumber == 1:
+        computerMove = 'к'
+        print('🗿 КАМЕНЬ')
+    if randomNumber == 2:
+        computerMove = 'н'
+        print('✂️ НОЖНИЦЫ')
+    if randomNumber == 3:
+        computerMove = 'б'
+        print('🧻 БУМАГА')
+    
+    # Отображение и учёт результатов
+    if playerMove == computerMove:
+        print('Ничья!')
+        ties = ties + 1
+    elif playerMove == 'к' and computerMove == 'н':
+        print('Вы выиграли')
+        wins = wins + 1
+    elif playerMove == 'б' and computerMove == 'к':
+        print('Вы выиграли')
+        wins = wins + 1
+    elif playerMove == 'н' and computerMove == 'б':
+        print('Вы выиграли')
+        wins = wins + 1
+    elif playerMove == 'к' and computerMove == 'б':
+        print('Вы проиграли!')
+        losses = losses + 1
+    elif playerMove == 'б' and computerMove == 'н':
+        print('Вы проиграли!')
+        losses = losses + 1
+    elif playerMove == 'н' and computerMove == 'к':
+        print('Вы проиграли!')
+        losses = losses + 1
+
+        
+        
