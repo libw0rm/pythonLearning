@@ -143,3 +143,31 @@
 #     print("Jimmy Five Times (" + str(i) + ")")
 #     i = i + 1 # Нумерация с (0)
 
+
+# # {Training_88-89} range()
+# for i in range(0, 1000, 100):
+#     # print(i, i**2)
+#     print(i, i**2, i**3, i**4)
+
+
+# # [ATBF_90] random
+# import random
+# for i in range(5):
+#     print(random.random())
+#     # print(random.randint(1,20))
+#     # print(random.randbytes(23))
+
+# # randomBytes = random.randbytes(23)
+# # print(type(randomBytes))
+
+# # [ATBF_91] exitExample
+# import sys
+
+# while True:
+#     print('Enter \'exit\' for exit')
+#     response = input()
+#     if response == 'exit':
+#         print('DONE. BYE!')
+#         sys.exit()
+
+
