@@ -325,41 +325,85 @@
 # hello('Barcelona')
 
 
-# [ATBF_105] magic8Ball
-import random
+# # [ATBF_105] magic8Ball
+# import random
 
-def getAnswer(answerNumber):
-    if answerNumber == 1:
-        return 'It is certain'
-    elif answerNumber == 2:
-        return 'It is decidedly so'
-    elif answerNumber == 3:
-        return 'Yes'
-    elif answerNumber == 4:
-        return 'Reply hazy try again'
-    elif answerNumber == 5:
-        return 'Ask again later'
-    elif answerNumber == 6:
-        return 'Concentrate and ask again'
-    elif answerNumber == 7:
-        return 'My reply is no'
-    elif answerNumber == 8:
-        return 'Outlook not so good'
-    elif answerNumber == 9:
-        return 'Very doubtful'
+# def getAnswer(answerNumber):
+#     if answerNumber == 1:
+#         return 'It is certain'
+#     elif answerNumber == 2:
+#         return 'It is decidedly so'
+#     elif answerNumber == 3:
+#         return 'Yes'
+#     elif answerNumber == 4:
+#         return 'Reply hazy try again'
+#     elif answerNumber == 5:
+#         return 'Ask again later'
+#     elif answerNumber == 6:
+#         return 'Concentrate and ask again'
+#     elif answerNumber == 7:
+#         return 'My reply is no'
+#     elif answerNumber == 8:
+#         return 'Outlook not so good'
+#     elif answerNumber == 9:
+#         return 'Very doubtful'
 
-shuffleNumbers = random.randint(1, 9)
-fortune = getAnswer(shuffleNumbers)
-print(fortune)
-# print(getAnswer(shuffleNumbers))
-# print(getAnswer(random.randint(1, 9)))
+# shuffleNumbers = random.randint(1, 9)
+# fortune = getAnswer(shuffleNumbers)
+# print(fortune)
+# # print(getAnswer(shuffleNumbers))
+# # print(getAnswer(random.randint(1, 9)))
 
-# # {Training_106}
-# spamOne = 'hello form spamOne'
-# spamTwo = print('hello from spamTwo')
-# spamTwo # вывод без None
-# print(spamTwo) # вывод с None
-# print(bool(None == spamTwo)) # True
-# print(bool(None == spamOne)) # False
+# # # {Training_106}
+# # spamOne = 'hello form spamOne'
+# # spamTwo = print('hello from spamTwo')
+# # spamTwo # вывод без None
+# # print(spamTwo) # вывод с None
+# # print(bool(None == spamTwo)) # True
+# # print(bool(None == spamOne)) # False
 
+
+# {Training_107}
+# import random
+
+# rVar = random.randint(1, 10) # Random from 1 to 10
+# # rVar = random.randint(10, 1) # Error
+# print(rVar)
+
+# print('Hello', end=' ')
+# print('World')
+# print('World_1', 'World_2', 'World_3', sep=', ')
+# print('S1n', 'S2n', 'S3n', sep='\n')
+# print('Tab1', 'Tab2', 'Tab3', sep='\t') 
+# print('CR1', 'CR2', 'CR3', sep='\r') 
+# # перезапись строки в [print] с помощью [\r], на выходе - последнее значение [CR3]
+# print('CR4', 'CR5', 'CR6', sep='\r\n') 
+# # теперь перезапись строки невозможна
+
+
+# [ATBF_109] abcdCallStack
+def a():
+    print('a() starts')
+    b()
+    d()
+    print('a() returns')
+
+
+def b():
+    print('b() starts')
+    c()
+    print('b() returns')
+
+
+def c():
+    print('c() starts')
+    print('c() returns')
+
+
+def d():
+    print('d() starts')
+    print('d() returns')
+
+
+a()
 
