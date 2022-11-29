@@ -307,7 +307,7 @@
 #     print(i)
 #     i += 1
 
-# [ATBF_102] helloFunc
+# # [ATBF_102] helloFunc
 # def hello():
 #     print('Hello!')
 #     print('Hello!!!')
@@ -316,11 +316,50 @@
 # hello()
 # hello()
 # hello()
+# # 
+# def hello(userName):
+#     print('Hello, ' + userName)
 
-def hello(userName):
-    print('Hello, ' + userName)
+# hello('Vicky')
+# hello('Cristina')
+# hello('Barcelona')
 
-hello('Vicky')
-hello('Cristina')
-hello('Barcelona')
+
+# [ATBF_105] magic8Ball
+import random
+
+def getAnswer(answerNumber):
+    if answerNumber == 1:
+        return 'It is certain'
+    elif answerNumber == 2:
+        return 'It is decidedly so'
+    elif answerNumber == 3:
+        return 'Yes'
+    elif answerNumber == 4:
+        return 'Reply hazy try again'
+    elif answerNumber == 5:
+        return 'Ask again later'
+    elif answerNumber == 6:
+        return 'Concentrate and ask again'
+    elif answerNumber == 7:
+        return 'My reply is no'
+    elif answerNumber == 8:
+        return 'Outlook not so good'
+    elif answerNumber == 9:
+        return 'Very doubtful'
+
+shuffleNumbers = random.randint(1, 9)
+fortune = getAnswer(shuffleNumbers)
+print(fortune)
+# print(getAnswer(shuffleNumbers))
+# print(getAnswer(random.randint(1, 9)))
+
+# # {Training_106}
+# spamOne = 'hello form spamOne'
+# spamTwo = print('hello from spamTwo')
+# spamTwo # вывод без None
+# print(spamTwo) # вывод с None
+# print(bool(None == spamTwo)) # True
+# print(bool(None == spamOne)) # False
+
 
