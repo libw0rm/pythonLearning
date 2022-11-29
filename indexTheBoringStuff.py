@@ -381,29 +381,113 @@
 # # теперь перезапись строки невозможна
 
 
-# [ATBF_109] abcdCallStack
-def a():
-    print('a() starts')
-    b()
-    d()
-    print('a() returns')
+# # [ATBF_109] abcdCallStack
+# def a():
+#     print('a() starts')
+#     b()
+#     d()
+#     print('a() returns')
 
 
-def b():
-    print('b() starts')
-    c()
-    print('b() returns')
+# def b():
+#     print('b() starts')
+#     c()
+#     print('b() returns')
+
+# def c():
+#     print('c() starts')
+#     print('c() returns')
+
+# def d():
+#     print('d() starts')
+#     print('d() returns')
+
+# a()
 
 
-def c():
-    print('c() starts')
-    print('c() returns')
+# {Training_112-113}
+# def spam():
+#     eggs = 99
+#     bacon()
+#     print(eggs)
+
+# def bacon():
+#     ham = 101
+#     eggs = 0
+
+# spam()
+# # bacon()
 
 
-def d():
-    print('d() starts')
-    print('d() returns')
+# def spam():
+#     print(eggs)
+# eggs = 42
+# spam()
+# print(eggs)
 
 
-a()
+# def spam():
+#     eggs = 'spam local'
+#     print(eggs)     # spam local
+
+# def bacon():
+#     eggs = 'bacon local'
+#     print(eggs)     # 1. bacon local
+#     spam()          # 2. spam local
+#     print(eggs)     # 3. bacon local
+
+# eggs = 'global'     # 4. global
+# bacon()
+# print(eggs)
+
+# def spam():
+#     global eggs
+#     eggs = 'spam'
+#     # print(eggs)
+# eggs = 'global'
+# # spam()
+# print(eggs)
+
+# LOCAL
+def firstLocalFunction():
+    numOne, numTwo, numThree = '1', '2', '3'
+    print('👻 local output_first: ' + numOne, numTwo, numThree)
+
+firstLocalFunction()
+
+def secondLocalFunction():
+    numOne, numTwo, numThree = 'a', 'b', 'c'
+    print('👻 local output_second: ' + numOne, numTwo, numThree, '\n')
+secondLocalFunction()
+# # print('local: ' + numOne, end=' ')
+# # print('local: ' + numTwo, end=' ')
+# # print('local: ' + numThree)  
+
+# GLOBAL
+
+numOne, numTwo, numThree = 'C++', 'Python', 'Assembler'
+
+def firstGlobalFunction():
+    global numOne, numTwo, numThree
+    # переопределение внутри функции
+    # numOne, numTwo, numThree = 'a', 'b', 'c'
+    print('🎃 global output_first: ' + numOne, numTwo, numThree)
+
+firstGlobalFunction()
+print('fG: ' + numOne, end=' ')
+print('fG: ' + numTwo, end=' ')
+print('fG: ' + numThree, '\n')
+
+# переопределим значения переменных
+numOne, numTwo, numThree = 'prod', 'beta', 'alpha'
+
+def secondGlobalFunction():
+    global numOne, numTwo, numThree
+    print('🐙 global output_second: ' + numOne, numTwo, numThree)
+
+secondGlobalFunction()
+print('sG: ' + numOne, end=' ')
+print('sG: ' + numTwo, end=' ')
+print('sG: ' + numThree)
+
 
