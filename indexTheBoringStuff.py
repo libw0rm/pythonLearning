@@ -301,9 +301,26 @@
 # for i in range (0, 10, 1):
 #     print(i)
 
-# 👽 Контрольные вопросы. Задание 13
-i = 1
-while i <= 10:
-    print(i)
-    i += 1
+# # 👽 Контрольные вопросы. Задание 13
+# i = 1
+# while i <= 10:
+#     print(i)
+#     i += 1
+
+# [ATBF_102] helloFunc
+# def hello():
+#     print('Hello!')
+#     print('Hello!!!')
+#     print('Hello my friends!')
+
+# hello()
+# hello()
+# hello()
+
+def hello(userName):
+    print('Hello, ' + userName)
+
+hello('Vicky')
+hello('Cristina')
+hello('Barcelona')
 
