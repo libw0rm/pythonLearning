@@ -522,27 +522,93 @@
 #     print('Error: Invalid argument. ☠️')
 
 
-# [ATBF_120] ZigZag
-import time, sys
+# # [ATBF_120] ZigZag
+# import time, sys
 
-indent = 0                  # кол-во пробелов для отступа
-indentIncreasing = True     # квеличение или умемьшение отступа
+# indent = 0                  # кол-во пробелов для отступа
+# indentIncreasing = True     # квеличение или умемьшение отступа
 
-try:
-    while True: # основной цикл
-        print(' ' * indent, end='')
-        print('********')
-        time.sleep(0.1) # выставляем паузу в 0.1s (1/10)
+# try:
+#     while True: # основной цикл
+#         print(' ' * indent, end='')
+#         print('********')
+#         time.sleep(0.1) # выставляем паузу в 0.1s (1/10)
 
-        if indentIncreasing:
-            indent += 1
-            if indent == 10:
-                indentIncreasing = False
-        else:
-            indent -= 1
-            if indent == 0:
-                indentIncreasing = True
-except KeyboardInterrupt:
-    sys.exit()
+#         if indentIncreasing:
+#             indent += 1
+#             if indent == 10:
+#                 indentIncreasing = False
+#         else:
+#             indent -= 1
+#             if indent == 0:
+#                 indentIncreasing = True
+# except KeyboardInterrupt:
+#     sys.exit()
 
+
+# {Training_122-123} Контрольные вопросы
+
+# def collatz(number):
+
+#     if number % 2 == 0:
+#         return (number // 2)  # если n кратное 2, то [n//2]
+
+#     else:
+#         return (3 * number + 1)  # если n не кратное 2, то [3n+1]
+
+# collatz(3)  #10
+# collatz(10) #5
+# collatz(5)  #16
+# collatz(16) #8
+# collatz(8)  #4
+# collatz(4)  #2
+# collatz(2)  #1
+# collatz(1)  #4
+
+
+# def collatz(number):
+
+#     if number % 2 == 0:
+#         return (number // 2)  # если n кратное 2, то [n//2]
+
+#     else:
+#         return (3 * number + 1)  # если n не кратное 2, то [3n+1]
+
+
+# userInputInteger = int(input('Enter number: '))
+# i = userInputInteger
+# magicInput = collatz(userInputInteger)
+
+# while True:
+#     if i == 1:
+#         break
+#     magicInput = i
+#     print(i)
+#     i = collatz(i)
+
+
+# Последовательность Коллатца
+# функция принимает целое положительное число
+def collatz(number): 
+
+    if number % 2 == 0: 
+        return (number // 2)    # если n кратное 2, то [n//2]
+        
+    else: 
+        return (3 * number + 1) # если n не кратное 2, то [3n+1]
+
+try:  # чекаем траблы ValueError or TypeError
+    i = int(input('Enter number: '))
+    j = 0       # счётчик итераций, just for fun
+    sum = 0     # счётчик итоговых сум, just for fun
+
+    while i != 1:
+        i = collatz(i)
+        j += 1
+        sum += i
+        print('Step:' + str(j) + '> ' + str(i))
+    print('total sum:' + str(sum))
+
+except ValueError or TypeError:
+    print('Enter even number from 1 to...')
 
