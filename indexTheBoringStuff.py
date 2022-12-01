@@ -448,46 +448,77 @@
 # # spam()
 # print(eggs)
 
-# LOCAL
-def firstLocalFunction():
-    numOne, numTwo, numThree = '1', '2', '3'
-    print('👻 local output_first: ' + numOne, numTwo, numThree)
+# # LOCAL
+# def firstLocalFunction():
+#     numOne, numTwo, numThree = '1', '2', '3'
+#     print('👻 local output_first: ' + numOne, numTwo, numThree)
 
-firstLocalFunction()
+# firstLocalFunction()
 
-def secondLocalFunction():
-    numOne, numTwo, numThree = 'a', 'b', 'c'
-    print('👻 local output_second: ' + numOne, numTwo, numThree, '\n')
-secondLocalFunction()
-# # print('local: ' + numOne, end=' ')
-# # print('local: ' + numTwo, end=' ')
-# # print('local: ' + numThree)  
+# def secondLocalFunction():
+#     numOne, numTwo, numThree = 'a', 'b', 'c'
+#     print('👻 local output_second: ' + numOne, numTwo, numThree, '\n')
+# secondLocalFunction()
+# # # print('local: ' + numOne, end=' ')
+# # # print('local: ' + numTwo, end=' ')
+# # # print('local: ' + numThree)  
 
-# GLOBAL
+# # GLOBAL
 
-numOne, numTwo, numThree = 'C++', 'Python', 'Assembler'
+# numOne, numTwo, numThree = 'C++', 'Python', 'Assembler'
 
-def firstGlobalFunction():
-    global numOne, numTwo, numThree
-    # переопределение внутри функции
-    # numOne, numTwo, numThree = 'a', 'b', 'c'
-    print('🎃 global output_first: ' + numOne, numTwo, numThree)
+# def firstGlobalFunction():
+#     global numOne, numTwo, numThree
+#     # переопределение внутри функции
+#     # numOne, numTwo, numThree = 'a', 'b', 'c'
+#     print('🎃 global output_first: ' + numOne, numTwo, numThree)
 
-firstGlobalFunction()
-print('fG: ' + numOne, end=' ')
-print('fG: ' + numTwo, end=' ')
-print('fG: ' + numThree, '\n')
+# firstGlobalFunction()
+# print('fG: ' + numOne, end=' ')
+# print('fG: ' + numTwo, end=' ')
+# print('fG: ' + numThree, '\n')
 
-# переопределим значения переменных
-numOne, numTwo, numThree = 'prod', 'beta', 'alpha'
+# # переопределим значения переменных
+# numOne, numTwo, numThree = 'prod', 'beta', 'alpha'
 
-def secondGlobalFunction():
-    global numOne, numTwo, numThree
-    print('🐙 global output_second: ' + numOne, numTwo, numThree)
+# def secondGlobalFunction():
+#     global numOne, numTwo, numThree
+#     print('🐙 global output_second: ' + numOne, numTwo, numThree)
 
-secondGlobalFunction()
-print('sG: ' + numOne, end=' ')
-print('sG: ' + numTwo, end=' ')
-print('sG: ' + numThree)
+# secondGlobalFunction()
+# print('sG: ' + numOne, end=' ')
+# print('sG: ' + numTwo, end=' ')
+# print('sG: ' + numThree)
+
+
+# [ATBF_102-103] Обработка исключений
+# def spam(divideBy):
+#     return 42 / divideBy
+# 
+# Ниже попробуем отловить ошибки
+# 
+# def spam(divideBy):
+#     try: # если в этом блоке случится ошибка, то программа переходит к [except]
+#         return 42 / divideBy
+#     except ZeroDivisionError: # здесь выводится сообщение об ошибке в блоке [try]
+#         print('Error: Invalid argument. ☠️')
+
+
+# print(spam(2))
+# print(spam(12))
+# print(spam(0))
+# print(spam(1))
+
+# Выделим [try-except] и поместим туда инструкции [print]
+def spam(divideBy):
+    return 42 / divideBy
+
+try:
+    print(spam(2))
+    print(spam(12))
+    print(spam(0))
+    print(spam(1)) # не будет выполнено, тк после [except] не происходит возврата в [try]
+except ZeroDivisionError:
+    print('Error: Invalid argument. ☠️')
 
 
