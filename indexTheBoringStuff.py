@@ -491,11 +491,11 @@
 # print('sG: ' + numThree)
 
 
-# [ATBF_102-103] Обработка исключений
+# # [ATBF_117-119] Обработка исключений
 # def spam(divideBy):
 #     return 42 / divideBy
 # 
-# Ниже попробуем отловить ошибки
+# # Ниже попробуем отловить ошибки
 # 
 # def spam(divideBy):
 #     try: # если в этом блоке случится ошибка, то программа переходит к [except]
@@ -509,16 +509,40 @@
 # print(spam(0))
 # print(spam(1))
 
-# Выделим [try-except] и поместим туда инструкции [print]
-def spam(divideBy):
-    return 42 / divideBy
+# # Выделим [try-except] и поместим туда инструкции [print]
+# def spam(divideBy):
+#     return 42 / divideBy
+
+# try:
+#     print(spam(2))
+#     print(spam(12))
+#     print(spam(0))
+#     print(spam(1)) # не будет выполнено, тк после [except] не происходит возврата в [try]
+# except ZeroDivisionError:
+#     print('Error: Invalid argument. ☠️')
+
+
+# [ATBF_120] ZigZag
+import time, sys
+
+indent = 0                  # кол-во пробелов для отступа
+indentIncreasing = True     # квеличение или умемьшение отступа
 
 try:
-    print(spam(2))
-    print(spam(12))
-    print(spam(0))
-    print(spam(1)) # не будет выполнено, тк после [except] не происходит возврата в [try]
-except ZeroDivisionError:
-    print('Error: Invalid argument. ☠️')
+    while True: # основной цикл
+        print(' ' * indent, end='')
+        print('********')
+        time.sleep(0.1) # выставляем паузу в 0.1s (1/10)
+
+        if indentIncreasing:
+            indent += 1
+            if indent == 10:
+                indentIncreasing = False
+        else:
+            indent -= 1
+            if indent == 0:
+                indentIncreasing = True
+except KeyboardInterrupt:
+    sys.exit()
 
 
