@@ -731,4 +731,37 @@ del delListStr[0]
 print('Удалено первое значение (1): ', delListInt)
 # '''
 
+''' программа allMyCats
+
+catNames = []
+while True:
+    print('Enter the name of cat ' + str(len(catNames) + 1) + ' or (<Enter> for exit)')
+    name = input()
+    if name == '':
+        break
+    catNames = catNames + [name]
+print('Имена кошастиков:')
+for name in catNames:
+    print(' ' + name)
+# '''
+
+''' цикл for со списками
+
+for i in range(3):
+    print(i)
+
+for i in [4, 5, 6]:
+    print(i)
+
+for i in ['a', 'b', 'c']:
+    print(i)
+# '''
+
+'''
+animalListAU = ['quokka', 'capybara', 'wombat', 'qoull']
+for i in range(len(animalListAU)):
+    print('Index ' + str(i) + ': ', animalListAU[i])
+# '''
+
+
 
