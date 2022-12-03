@@ -545,9 +545,9 @@
 # except KeyboardInterrupt:
 #     sys.exit()
 
-
 # {Training_122-123} Контрольные вопросы
 
+''''''
 # def collatz(number):
 
 #     if number % 2 == 0:
@@ -587,28 +587,148 @@
 #     i = collatz(i)
 
 
-# Последовательность Коллатца
-# функция принимает целое положительное число
-def collatz(number): 
+# # Последовательность Коллатца
+# # функция принимает целое положительное число
+# def collatz(number): 
 
-    if number % 2 == 0: 
-        return (number // 2)    # если n кратное 2, то [n//2]
+#     if number % 2 == 0: 
+#         return (number // 2)    # если n кратное 2, то [n//2]
         
-    else: 
-        return (3 * number + 1) # если n не кратное 2, то [3n+1]
+#     else: 
+#         return (3 * number + 1) # если n не кратное 2, то [3n+1]
 
-try:  # чекаем траблы ValueError or TypeError
-    i = int(input('Enter number: '))
-    j = 0       # счётчик итераций, just for fun
-    sum = 0     # счётчик итоговых сум, just for fun
+# try:  # чекаем траблы ValueError or TypeError
+#     i = int(input('Enter number: '))
+#     j = 0       # счётчик итераций, just for fun
+#     sum = 0     # счётчик итоговых сум, just for fun
 
-    while i != 1:
-        i = collatz(i)
-        j += 1
-        sum += i
-        print('Step:' + str(j) + '> ' + str(i))
-    print('total sum:' + str(sum))
+#     while i != 1:
+#         i = collatz(i)
+#         j += 1
+#         sum += i
+#         print('Step:' + str(j) + '> ' + str(i))
+#     print('total sum:' + str(sum))
 
-except ValueError or TypeError:
-    print('Enter even number from 1 to...')
+# except ValueError or TypeError:
+#     print('Enter even number from 1 to...')
+
+
+# [ATBF_126] Списки
+# {Training}
+
+''' Получение фрагмента списка с помощью среза и отрицательные индексы
+animalListAU = ['quokka', 'capybara', 'wombat', 'qoull']
+animalListRU = ['viper', 'bear', 'wolf', 'crane']
+animalListCA = ['beaver', 'linx', 'bison', 'puffin']
+animalListSumm = [animalListAU, animalListRU, animalListCA]
+
+print(animalListSumm[0])              # animalListAU
+print(animalListSumm)                 # all lists
+print(animalListSumm[1])              # animalListRU
+print(animalListSumm[2])              # animalListCA
+print(animalListSumm[0][2])           # wombat
+print(animalListSumm[1][2])           # wolf
+print(animalListSumm[2][2])           # bison
+print(animalListSumm[2][2][1])        # b[i]son
+print(animalListSumm[2][2][-4])       # b[i]son
+print(animalListSumm[2][2][1:])       # b[ison]
+print(animalListSumm[2][2][-4:])      # b[ison]
+print(animalListSumm[2][2][-5:])      # [bison]
+print(animalListSumm[2][2][-2:])      # bis[on]
+print(animalListSumm[2][2][0:-1])     # [biso]n
+print(animalListSumm[2][2][-4:-1])    # b[iso]n
+print(animalListSumm[2][2][-4])       # b[i]son
+print(animalListSumm[0][0:2])         # quokka, capybara
+print(animalListSumm[0][-1:])         # quoll
+print(animalListSumm[0][0:-2])        # quokka, capybara
+print(animalListSumm[0][-2])          # wombat
+print(animalListSumm[0][-2:])         # wombat, quoll
+print(animalListSumm[0][-2:-1])       # wombat
+print(animalListSumm[0][:])           # == list[0]
+print('Hello, ' + animalListSumm[0][2])
+
+# определение длины списка
+print(len(animalListAU)) # 4 индекса
+print(len(animalListSumm)) # 3 индекса 
+print(len(animalListSumm[0])) # 4 индекса 
+# '''
+
+''' Изменение элементов списка с помощью индексов
+animalListAU = ['quokka', 'capybara', 'wombat', 'qoull']
+animalListRU = ['viper', 'bear', 'wolf', 'crane']
+animalListCA = ['beaver', 'linx', 'bison', 'puffin']
+animalListSumm = [animalListAU, animalListRU, animalListCA]
+
+animalListAU[0] = 'parrot'
+animalListRU[0] = 'tiger'
+animalListCA[0] = 'snake'
+
+print(animalListAU)
+print(animalListRU)
+print(animalListCA)
+# '''
+
+''' 
+numberListOne = [1, 2, 3]
+numberListTwo = [3, 4, 5]
+numberListSumm = [numberListOne, numberListTwo]
+
+print(numberListSumm[0][2] * 2) # (3*2)
+print(numberListSumm[1][1] + numberListSumm[0][1]) # 4+2
+print(numberListOne, numberListTwo) # вывод списков
+print(numberListOne[2]*2, numberListTwo[2]*2) # 6, 10
+# '''
+
+''' Буллевы значения и списки
+boolListNum = [1,2,3]
+boolListStr = ['a','b','c']
+boolListBool = [True, False, False]
+boolListFalse = [False, False, False]
+boolListTrue = [True, True, True]
+boolListNone = [None, None, None]
+
+print(bool(boolListNum))
+print(bool(boolListStr))
+print(bool(boolListBool[0]))
+print(bool(boolListFalse[0]))
+print(bool(boolListTrue[0]))
+print(bool(boolListNone))
+# '''
+
+''' Изменение элементов списка
+changeListNumber = [1, 2, 3]
+print(changeListNumber)  # [1, 2, 3]
+
+changeListNumber[:] = [0, 1, 2]
+print(changeListNumber)  # [0, 1, 2]
+# '''
+
+'''
+concatListStrOne = ['a', 'b', 'c']
+concatListStrTwo = ['d', 'e', 'f']
+concatListIntOne = [1, 2, 3]
+concatListIntTwo = [4, 5, 6]
+
+listStrStr = concatListStrOne + concatListStrTwo
+listStrInt = concatListStrOne + concatListIntOne
+listIntInt = concatListIntOne + concatListIntTwo
+
+print(listStrStr)
+print(listStrInt)
+print(listIntInt)
+
+# '''
+
+''' Удаление значений из списка с помощью {del}
+delListStr = ['a', 'b', 'c']
+delListInt = [1, 2, 3, 4]
+print(delListInt)
+
+del delListInt[-1]
+print('Удален последний индекс со значением (4): ', delListInt)
+
+del delListStr[0]
+print('Удалено первое значение (1): ', delListInt)
+# '''
+
 
