@@ -764,4 +764,40 @@ for i in range(len(animalListAU)):
 # '''
 
 
+''' операторы in и not in
+listInt = [1, 2, 3, 4]
+print(1 in listInt)         # True
+print('1' in listInt)       # False
+print('1' not in listInt)   # True
+# '''
+
+
+''' My Pets
+myPets = ['Sofy', 'Piter', 'Fatty']
+print('Enter name: ')
+inputName = input()
+if inputName not in myPets:
+    print('WAT? How?')
+else:
+    print(inputName + ' is my pet')
+# '''
+
+
+''' Груповое присваивание
+cat = ['fatty', 'grey', 'loud']
+# size = cat[0]
+# color = cat[1]
+# disposition = cat[2]
+
+size, color, disposition = cat
+print(size, color, disposition)
+# '''
+
+
+# ''' Использование enumerate()
+animalListAU = ['quokka', 'capybara', 'wombat', 'qoull']
+for index, item in enumerate(animalListAU):
+    print('Index', str(index) + ':',  item)
+# '''
+
 
