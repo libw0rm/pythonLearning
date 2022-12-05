@@ -989,7 +989,7 @@ print(fortune)
 # '''
 
 
-# ''' [ATBF_143] списковые типы данных
+''' [ATBF_143] списковые типы данных
 nameString = 'Socrates'
 print(nameString[0]) # S
 print(nameString[0:3]) # Soc
@@ -999,5 +999,36 @@ print('do' in nameString) # False
 print('do' in nameString or 'so' in nameString) # False
 for i in nameString:
     print(str.upper('-*- ' + i + ' -*-'))
+# '''
+
+
+''' [ATBF_144] изменяемые и неизменяемые типы данных
+# kittyName = 'Kittify'
+# kittyName[4] = 'this is'
+# print(kittyName)  # TypeError
+
+eggs = [1, 2, 3]
+eggs = [4, 5, 6]
+
+print(eggs)  # [4, 5, 6]
+
+del eggs[2]
+eggs.append(7)
+print(eggs)  # [4, 5, 7]
+del eggs[1]
+eggs.append(8)
+print(eggs)  # [4, 7, 8]
+del eggs[0]
+eggs.append(9)
+print(eggs)  # [7, 8, 9]
+
+
+print('Удаление значений списка через [:] или [0:] или [0:3]')
+del eggs[:]   # аналогичен [0:3], остаётся пустой список
+print(eggs)     # []
+
+print('Удаление переменной "eggs" с помощью del')
+del eggs
+print(eggs)  # NameError: name 'eggs' is not defined
 # '''
 
