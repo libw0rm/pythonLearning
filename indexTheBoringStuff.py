@@ -794,10 +794,104 @@ print(size, color, disposition)
 # '''
 
 
-# ''' Использование enumerate()
+''' Использование enumerate()
 animalListAU = ['quokka', 'capybara', 'wombat', 'qoull']
 for index, item in enumerate(animalListAU):
     print('Index', str(index) + ':',  item)
+
 # '''
+
+''' использование random.chice
+import random
+animalList = ['quokka', 'capybara', 'wombat', 'qoull', 'beaver', 'linx', 'bison', 'puffin', 'bear', 'tiger']
+# print(random.choice(animalList))
+
+for i in range(0, 10):
+    print(random.choice(animalList))
+
+# '''
+
+''' использование random.shuffle
+import random
+
+animalList = ['quokka', 'capybara', 'wombat', 'qoull',
+            'beaver', 'linx', 'bison', 'puffin', 'bear','tiger']
+print(random.shuffle(animalList)) # None, удалено из Python 3.11
+print(random.choice(animalList))
+print(random.choices(animalList))
+# '''
+
+
+# ''' ☠️ WARNING! This is Generator for 100.000.000 32b str
+# import random
+
+# a = 10000000000000000000000000000000
+# b = 99999999999999999999999999999999
+# i = 0
+
+# while i <= 100000000:
+#     print(random.randint(a, b))
+#     i += 1
+
+# '''
+
+
+''' Комбинированные операторы присваивания
+spamNum = 13
+
+# spamNum += 1 # 14
+# spamNum -= 1 # 12
+# spamNum *= 1 # 13
+# spamNum /= 1 # 13.0
+# spamNum %= 1 # 0
+
+print(spamNum)
+# '''
+
+''' 
+# Конкатенация [+] строк и списков
+spamStr = 'Hello '
+spamStr += 'World'
+
+print(spamStr)
+
+# репликация [*] строк и списков
+piggy = ['Babel']
+piggy *= 3  # ['Babel', 'Babel', 'Babel']
+
+print(piggy)
+# '''
+
+
+''' Методы списков
+# метод index()
+helloList = ['hello', 'greetings', 'hi',  'howdy', 'bonjour']
+
+print(helloList.index('hi')) # 2
+# ''' 
+
+# ''' методы append() и  insert()
+addList = ['cat', 'dog']
+print(addList)  # ['cat', 'dog']
+addList.append('mouse')
+print(addList)  # ['cat', 'dog', 'mouse']
+addList.insert(0, 'kitty')
+print(addList)  # ['kitty', 'cat', 'dog', 'mouse']
+# append() и  insert() в присваивании
+# addList = addList.insert(0, 'kitty')
+# print(addList)  # None
+# '''
+
+# ''' метод remove()
+addList.remove('kitty')
+print('remove() kitty', addList)  # ['cat', 'dog', 'mouse']
+addList.append('kitty')
+print('append() kitty', addList)  # ['cat', 'dog', 'mouse']
+del addList[3]
+print('del[] kitty', addList)  # ['cat', 'dog', 'mouse']
+# ''' 
+
+# '''
+
 
 
