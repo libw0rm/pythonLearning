@@ -1032,3 +1032,46 @@ del eggs
 print(eggs)  # NameError: name 'eggs' is not defined
 # '''
 
+
+''' Кортежи / Python Tuples
+
+firstTuple = ('hi', 42, 0.05)
+print(firstTuple[:])
+
+try:
+    firstTuple[2] = 0.5     # неизменяемость кортежа
+    print(firstTuple[:])    # TypeError
+except TypeError:
+    print('TypeError in firstTuple')
+
+typeTestTuple = ('hello')
+print(type(('hello',)))  # <class 'tuple'>
+print(type(('hello')))   # <class 'str'>
+# '''
+
+''' [ATBF_147] Преобразование типов с помощью list() и tuple()
+listVeg = ['squash', 'pea', 'carrot', 'potato']
+tupleBerry = ('strawberry', 'blueberry', 'cranberry')
+
+# присвоение переменным
+tempTuple = tuple(listVeg)
+tempList = list(tupleBerry)
+
+# преобразование типов 
+print(tuple(listVeg))       # list to tuple
+print(list(tupleBerry))     # tuple to list
+
+# проверка типов
+print(type(tempList))       # <class 'list'>
+print(type(tempTuple))      # <class 'tuple'>
+
+# обращение по индексу
+print(list(tupleBerry[1]))  # ['b', 'l', 'u', 'e', 'b', 'e', 'r', 'r', 'y']
+print(tuple(listVeg[0]))    # ('s', 'q', 'u', 'a', 's', 'h')
+# '''
+
+
+# '''
+
+# '''
+
