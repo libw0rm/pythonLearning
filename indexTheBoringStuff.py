@@ -967,3 +967,24 @@ print(integersList)                 # [4, 3, 2, 1]
 print(integersStringList.reverse()) # None
 # '''
 
+# ''' [ATBF_142] версия Magic-8-Ball со списком
+import random
+
+
+magicBallMessages = [
+    'It is certain',  \
+    'It is decidedly so', \
+    'Yes', \
+    'Reply hazy try again', \
+    'Ask again later', \
+    'Concentrate and ask again', \
+    'My reply is no', \
+    'Outlook not so good', \
+    'Very doubtful'
+    ]
+
+fortune = magicBallMessages[random.randint(0, len(magicBallMessages)-1)]
+
+print(fortune)
+# '''
+
