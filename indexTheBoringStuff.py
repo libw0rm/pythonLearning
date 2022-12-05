@@ -870,7 +870,7 @@ helloList = ['hello', 'greetings', 'hi',  'howdy', 'bonjour']
 print(helloList.index('hi')) # 2
 # ''' 
 
-# ''' методы append() и  insert()
+''' методы append() и  insert()
 addList = ['cat', 'dog']
 print(addList)  # ['cat', 'dog']
 addList.append('mouse')
@@ -882,16 +882,88 @@ print(addList)  # ['kitty', 'cat', 'dog', 'mouse']
 # print(addList)  # None
 # '''
 
-# ''' метод remove()
-addList.remove('kitty')
-print('remove() kitty', addList)  # ['cat', 'dog', 'mouse']
+''' методы remove() и del
+addList.remove('kitty') # LIST.remove('value') удаляет по значению
+print('remove() kitty', addList)    # ['cat', 'dog', 'mouse']
 addList.append('kitty')
-print('append() kitty', addList)  # ['cat', 'dog', 'mouse']
-del addList[3]
-print('del[] kitty', addList)  # ['cat', 'dog', 'mouse']
+print('append() kitty', addList)    # ['cat', 'dog', 'mouse']
+del addList[3] # del LIST[i] удаляет по индексу
+print('del[] kitty', addList)       # ['cat', 'dog', 'mouse']
 # ''' 
 
+
+''' # сортировка с помощью sort()
+sortCharList = ['d', 'c', 'b', 'a']
+sortNumberList = [9, 6, 3, 1]
+sortNumberList.sort(reverse=True)
+sortNumberList.sort()
+print(sortNumberList)
+# print(sortCharList.sort()) # None
+
+# Сортировка строки
+s2 = "hello"
+print(sorted(s2))                 # ['e', 'h', 'l', 'l', 'o']
+print(sorted(s2, reverse=True))   # ['o', 'l', 'l', 'h', 'e']
+
+# Сортировка списка
+l1 = [1, 4, 5, 2, 456, 12]
+print(sorted(l1))                 # [1, 2, 4, 5, 12, 456]
+print(sorted(l1, reverse=True))   # [456, 12, 5, 4, 2, 1]
+
+# Сортировка кортежа
+t1 = (15, 3, 5, 7, 9, 11, 42)
+print(sorted(t1))                 # [3, 5, 7, 9, 11, 15, 42]
+print(sorted(t1, reverse=True))   # [42, 15, 11, 9, 7, 5, 3]
+
+# Сортировка списка кортежей
+t2 = [(1, 2), (11, 12), (0, 2), (3, 2)]
+print(sorted(t2))                 # [(0, 2), (1, 2), (3, 2), (11, 12)]
+print(sorted(t2, reverse=True))   # [(11, 12), (3, 2), (1, 2), (0, 2)]
+
+# Сортировка множества
+s1 = {1, 4, 3, 6, 2, 8, 11, 32}
+print(sorted(s1))                 # [1, 2, 3, 4, 6, 8, 11, 32]
+print(sorted(s1, reverse=True))   # [32, 11, 8, 6, 4, 3, 2, 1]
+
+# Сортировка словаря
+d1 = {2: 'red', 1: 'green', 3: 'blue'}
+# Вернется список отсортированных ключей
+print(sorted(d1))   # [1, 2, 3]
+
+# Вернется список отсортированных значений
+print(sorted(d1.values()))   # ['blue', 'green', 'red']
+
+# Вернется список кортежей (ключ, значение), отсортированный по ключам.
+print(sorted(d1.items()))   # [(1, 'green'), (2, 'red'), (3, 'blue')]
+
+# Сортировка словаря в обратном порядке
+print(sorted(d1, reverse=True))            # [3, 2, 1]
+print(sorted(d1.values(), reverse=True))   # ['red', 'green', 'blue']
+# [(3, 'blue'), (2, 'red'), (1, 'green')]
+print(sorted(d1.items(), reverse=True))
+
+vegetables = ['squash', 'pea', 'carrot', 'potato']
+new_list = sorted(vegetables)
+# new_list = ['carrot', 'pea', 'potato', 'squash']
+print(new_list)
+# vegetables = ['squash', 'pea', 'carrot', 'potato']
+print(vegetables)
+
+vegetables.sort()
+# vegetables = ['carrot', 'pea', 'potato', 'squash']
+print(vegetables)
+# ''' 
+
+'''
+# инверсия списка с помощью reversed()
+integersStringList = ['1', '2', '3', '4']
+integersList = [1, 2, 3, 4]
+
+integersStringList.reverse()
+integersList.reverse()
+
+print(integersStringList)           # ['4', '3', '2', '1']
+print(integersList)                 # [4, 3, 2, 1]
+print(integersStringList.reverse()) # None
 # '''
-
-
 
