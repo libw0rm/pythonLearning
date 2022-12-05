@@ -967,7 +967,7 @@ print(integersList)                 # [4, 3, 2, 1]
 print(integersStringList.reverse()) # None
 # '''
 
-# ''' [ATBF_142] версия Magic-8-Ball со списком
+''' [ATBF_142] версия Magic-8-Ball со списком
 import random
 
 
@@ -986,5 +986,18 @@ magicBallMessages = [
 fortune = magicBallMessages[random.randint(0, len(magicBallMessages)-1)]
 
 print(fortune)
+# '''
+
+
+# ''' [ATBF_143] списковые типы данных
+nameString = 'Socrates'
+print(nameString[0]) # S
+print(nameString[0:3]) # Soc
+print('So' in nameString) # True
+print('so' in nameString) # True
+print('do' in nameString) # False
+print('do' in nameString or 'so' in nameString) # False
+for i in nameString:
+    print(str.upper('-*- ' + i + ' -*-'))
 # '''
 
