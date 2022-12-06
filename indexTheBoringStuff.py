@@ -1127,7 +1127,7 @@ passingReference(linkList)  # linkList - аргумент для функции 
 print(id(linkList), linkList) # посмотрим id и вывод
 # '''
 
-# ''' [ATBF_152] Функции copy() и deepcopy()
+''' [ATBF_152] Функции copy() и deepcopy()
 # copy() позляет создать копию изменяемого значения, 
 # такого как список или словарь, а не просто копию ссылки
 # deepcopy() используется если список содержит вложенные списки
@@ -1144,3 +1144,76 @@ secondyListCopy[1] = 42
 print(id(firstListCopy), firstListCopy)
 print(id(secondyListCopy), secondyListCopy)
 # '''
+
+
+# ''' [ATBF_154-155] Игра "Жизнь"
+import random, time, copy
+WIDTH = 600
+HEIGHT = 600
+
+# Создадим список списков для клеток
+nextCells = []
+for x in range(WIDTH):
+    column = [] # создание нового столбца
+    for y in range(HEIGHT):
+        if random.randint(0, 1) == 0:
+            column.append('#') # добавление живой кетки
+        else:
+            column.append(' ') # добавление мертвой клетки
+    nextCells.append(column) # nextCells содержит список столбцов
+
+while True:
+    # print('\n\n\n\n\n') # отделим каждый шаг с помощью символов новой строки
+    currentCells = copy.deepcopy(nextCells)
+
+    # Вывод текущих строк на экран
+    for y in range(HEIGHT):
+        for x in range(WIDTH):
+            print(currentCells[x][y], end='') # вывод решётки или пробела
+        print()
+
+    # Вычисление клеток на следующем шаге на основе клеток текущего шага
+    for x in range(WIDTH):
+        for y in range(HEIGHT):
+        # Получение соседних координат.
+        # Выражение '% WIDTH' гарантирует, что значение
+        # leftCoord всегда находится между 0 и WIDTH - 1
+            leftCoord  = (x - 1) % WIDTH
+            rightCoord = (x + 1) % WIDTH
+            aboveCoord = (y - 1) % HEIGHT
+            belowCoord = (y + 1) % HEIGHT
+
+            # print('X-left:', leftCoord, 'X-right:', rightCoord)
+            # print('Y-above:', aboveCoord, 'Y-below:', belowCoord, '\n')
+        
+            numNeighbors = 0
+            if currentCells[leftCoord][aboveCoord] == '#':
+                numNeighbors += 1 # жива клетка слева сверху
+            if currentCells[x][aboveCoord] == '#':
+                numNeighbors += 1  # жива клетка сверху
+            if currentCells[rightCoord][aboveCoord] == '#':
+                numNeighbors += 1  # жива клетка справа сверху
+            if currentCells[leftCoord][y] == '#':
+                numNeighbors += 1  # жива клетка слева
+            if currentCells[rightCoord][y] == '#':
+                numNeighbors += 1  # жива клетка справа
+            if currentCells[leftCoord][belowCoord] == '#':
+                numNeighbors += 1  # жива клетка слева снизу
+            if currentCells[x][belowCoord] == '#':
+                numNeighbors += 1  # жива клетка снизу
+            if currentCells[rightCoord][belowCoord] == '#':
+                numNeighbors += 1  # жива клетка справа снизу
+
+            # Изменение клетки на основе правил
+            if currentCells[x][y] == '#' and (numNeighbors == 2 or numNeighbors == 3):
+                # Живые клетки с 2 или 3 соседями остаются живыми
+                nextCells[x][y] = '#'
+            elif currentCells[x][y] == ' ' and numNeighbors == 3:
+                # Мёртвые клетки с 3 живыми соседям оживают
+                nextCells[x][y] = '#'
+            else:
+                # все остальные умирают или остаются мертвыми
+                nextCells[x][y] = ' '
+    time.sleep(1)
+# '''
+
