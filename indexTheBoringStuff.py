@@ -1093,6 +1093,32 @@ cheese[1] = 'Ooops!'
 # посмотрим что внутри
 print(spam) 
 print(cheese)
+print(id(spam), '< id списка в spam') 
+print(id(cheese), '< id списка в cheese')
 # переменная cheese ссылается на тот же список
+# '''
+
+# ''' [ATBF_148] тождественность и id в Python
+testIdListOne = ['a', 'b', 'c']
+testIdListTwo = ['a', 'b', 'c']
+idTestListOneFirst = id(testIdListOne)
+print(id(testIdListOne), '< id testIdListOne')          # разные id
+print(id(testIdListTwo), '< id testIdListTwo', '\n')    # разные id
+
+# добавим в testIdListOne значение 'd'
+# append() не создаёт новый объект списка, он изменяет существующий список
+testIdListOne.append('d')
+print(id(testIdListOne), testIdListOne, \
+        '< id testIdListOne')  # id не изменился
+print(id(testIdListTwo), testIdListTwo, \
+        '< id testIdListTwo', '\n')
+
+# пересоздание testIdListOne с тем же набором значений
+testIdListOne = ['a', 'b', 'c', 'd']
+idTestListOneSecond = id(testIdListOne)
+
+print('Сравним id-значения списков testIdListOne: ', \
+        idTestListOneFirst,idTestListOneSecond, \
+        bool(idTestListOneFirst == idTestListOneSecond), sep='\n')
 # '''
 
