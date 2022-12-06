@@ -797,7 +797,7 @@ for index, item in enumerate(animalListAU):
 
 # '''
 
-''' использование random.chice
+''' использование random.choice
 import random
 animalList = ['quokka', 'capybara', 'wombat', 'qoull', 'beaver', 'linx', 'bison', 'puffin', 'bear', 'tiger']
 # print(random.choice(animalList))
@@ -1275,3 +1275,23 @@ print('Type foo: ', type(list(foo))) # <class 'list'>
 print('Type bar: ', type(tuple(bar))) # <class 'tuple'>
 # '''
 
+# ''' Орёл и решка
+import random
+
+customerInput = int(input('Сколько раз подбрасываем? \n'))
+outputList = []
+countObverse = 0
+countReverse = 0
+
+for i in range(customerInput):
+    if random.randint(0, 1) == 0:
+        outputList.append('P')
+        countReverse += 1
+    else:
+        outputList.append('O')
+        countObverse += 1
+    i += 1
+
+print('Орлов выпало: ', countObverse, '\n''Решек выпало: ', countReverse)
+# print(outputList)
+# '''
