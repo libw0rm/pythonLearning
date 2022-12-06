@@ -1111,7 +1111,7 @@ print('Сравним id-значения списков testIdListOne: ',
       bool(idTestListOneFirst == idTestListOneSecond), sep='\n')
 # '''
 
-# ''' [ATBF_151] Передача ссылок
+''' [ATBF_151] Передача ссылок
 def passingReference(someParameter):
     someParameter.append('Hello')
 
@@ -1125,4 +1125,22 @@ print(id(linkList), linkList)
 passingReference(linkList)  # linkList - аргумент для функции pR
 
 print(id(linkList), linkList) # посмотрим id и вывод
+# '''
+
+# ''' [ATBF_152] Функции copy() и deepcopy()
+# copy() позляет создать копию изменяемого значения, 
+# такого как список или словарь, а не просто копию ссылки
+# deepcopy() используется если список содержит вложенные списки
+import copy
+
+
+firstListCopy = ['A', 'B', 'C', 'D']
+print(id(firstListCopy), '< id firstListCopy')
+
+secondyListCopy = copy.copy(firstListCopy)
+print(id(secondyListCopy), '< id secondyListCopy')
+
+secondyListCopy[1] = 42
+print(id(firstListCopy), firstListCopy)
+print(id(secondyListCopy), secondyListCopy)
 # '''
