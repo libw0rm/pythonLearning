@@ -857,7 +857,7 @@ piggy *= 3  # ['Babel', 'Babel', 'Babel']
 print(piggy)
 # '''
 
-''' Методы списков
+''' [ATBF_135-140] Методы списков
 # метод index()
 helloList = ['hello', 'greetings', 'hi',  'howdy', 'bonjour']
 
@@ -1146,10 +1146,10 @@ print(id(secondyListCopy), secondyListCopy)
 # '''
 
 
-# ''' [ATBF_154-155] Игра "Жизнь"
+''' [ATBF_154-155] Игра "Жизнь"
 import random, time, copy
-WIDTH = 600
-HEIGHT = 600
+WIDTH = 100
+HEIGHT = 40
 
 # Создадим список списков для клеток
 nextCells = []
@@ -1161,10 +1161,12 @@ for x in range(WIDTH):
         else:
             column.append(' ') # добавление мертвой клетки
     nextCells.append(column) # nextCells содержит список столбцов
+    i = 0
 
 while True:
     # print('\n\n\n\n\n') # отделим каждый шаг с помощью символов новой строки
     currentCells = copy.deepcopy(nextCells)
+    i += 1
 
     # Вывод текущих строк на экран
     for y in range(HEIGHT):
@@ -1214,6 +1216,62 @@ while True:
             else:
                 # все остальные умирают или остаются мертвыми
                 nextCells[x][y] = ' '
-    time.sleep(1)
+    print(i)
+    time.sleep(0.005)
+# '''
+
+''' [ATBF_159] Контрольные вопросы
+# {Training}
+# (159) Задание 2
+spam = [2, 4, 6, 8, 10]
+spam[2] = 'hello'
+spam
+
+# (159) Задания 3, 4, 5
+spam = ['а', 'b', 'с', 'f', 'd']
+spam[int('3' * 2) // 11]
+# '3' * 2 = '33' => int('33') // 11 == [3]
+spam[-1]  # 'd'
+spam[:2]  # ['а', 'b']
+
+# (159) Задания 6, 7, 8
+bacon = [3.14, 'cat', 11, 'cat', True]
+print(bacon.index('cat')) # [1]
+bacon.append(99) # значение (99) будет добавлено в конец списка
+print(bacon) # [3.14, 'cat', 11, 'cat', True, 99]
+bacon.remove('cat') # будет удалено первое соответствующее вхождение [1]
+print(bacon, '\n')
+
+# (159) Задание 9
+foo = 'bar'
+bar = 'foo'
+print('Конкатанация: bar + foo > ', bar + foo)  # foobar
+print('Репликация: bar * foo > ', ((bar + foo) * 2), '\n')  # foobarfoobar
+
+# (159) Задание 10. В чем разница между списковыми методами append() и insert()?
+foo = ['f', 'o']
+bar = ['b', 'a']
+foo.append('0') # append() добавляет значение в конец списка
+bar.insert(2, 'r') # insert() добавляет значение по индексу со смещением
+print(foo, 'append() добавляет значение в конец списка')
+print(bar, 'insert() добавляет значение по индексу со смещением')
+
+# (159) Задание 11. Два способа удаления значений из списков
+foo.remove('0') # удаление по значению
+del bar[2] # удаление по индексу
+print(foo)  # ['f', 'o']
+print(bar)  # ['b', 'a']
+
+# (159) Задания 14, 15. 
+# 14. Как записать кортеж, содержащий единственное целочисленное значение 42? 
+# 15. Как преобразовать список в кортеж? Как преобразовать кортеж в список?
+foo = (42,) # кортеж с единственным целочисленным значением
+bar = [42] # список
+print('Type foo: ', type(foo)) # <class 'tuple'>
+print('Type bar: ', type(bar)) # <class 'list'>
+
+print('\nПреобразование списка в кортеж и кортеж в список')
+print('Type foo: ', type(list(foo))) # <class 'list'>
+print('Type bar: ', type(tuple(bar))) # <class 'tuple'>
 # '''
 
