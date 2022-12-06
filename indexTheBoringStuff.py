@@ -53,7 +53,7 @@
 # else:
 #     print("You're neither Alice nor a little kid.")
 
-    
+
 # # {Training_80}
 # userName = ''
 # while userName != 'your name':
@@ -207,7 +207,7 @@
 #     # Главный цикл игры
 # while True:
 #     print('%s wins, %s losses, %s ties\n' % (wins, losses, ties))
-    
+
 #     # Цикл выбора хода 
 #     while True:
 #         print('Выбери ход: (к)амень, (н)ожницы, (б)умага или ' + \
@@ -220,7 +220,7 @@
 #         or playerMove == 'б':
 #             break # выход из цикла ввода
 #         print('Введи "к", "н", "б", "в"')
-    
+
 #     # Отображение выбора пользователя 
 #     if playerMove == 'к':
 #         print('КАМЕНЬ и ...')
@@ -240,7 +240,7 @@
 #     if randomNumber == 3:
 #         computerMove = 'б'
 #         print('🧻 БУМАГА')
-    
+
 #     # Отображение и учёт результатов
 #     if playerMove == computerMove:
 #         print('🤝 Ничья!')
@@ -264,7 +264,7 @@
 #         print('😱 Вы проиграли!')
 #         losses = losses + 1
 
-        
+
 # # {Training_98-99}
 # # Контрольные вопросы. Задание 4
 # print(bool((5 > 4) and (3 == 5)), ': (5 > 4) and (3 == 5)')
@@ -593,7 +593,7 @@
 
 #     if number % 2 == 0: 
 #         return (number // 2)    # если n кратное 2, то [n//2]
-        
+
 #     else: 
 #         return (3 * number + 1) # если n не кратное 2, то [3n+1]
 
@@ -763,14 +763,12 @@ for i in range(len(animalListAU)):
     print('Index ' + str(i) + ': ', animalListAU[i])
 # '''
 
-
 ''' операторы in и not in
 listInt = [1, 2, 3, 4]
 print(1 in listInt)         # True
 print('1' in listInt)       # False
 print('1' not in listInt)   # True
 # '''
-
 
 ''' My Pets
 myPets = ['Sofy', 'Piter', 'Fatty']
@@ -782,7 +780,6 @@ else:
     print(inputName + ' is my pet')
 # '''
 
-
 ''' Груповое присваивание
 cat = ['fatty', 'grey', 'loud']
 # size = cat[0]
@@ -792,7 +789,6 @@ cat = ['fatty', 'grey', 'loud']
 size, color, disposition = cat
 print(size, color, disposition)
 # '''
-
 
 ''' Использование enumerate()
 animalListAU = ['quokka', 'capybara', 'wombat', 'qoull']
@@ -820,7 +816,6 @@ print(random.shuffle(animalList)) # None, удалено из Python 3.11
 print(random.choice(animalList))
 print(random.choices(animalList))
 # '''
-
 
 # ''' ☠️ WARNING! This is Generator for 100.000.000 32b str
 # import random
@@ -862,13 +857,12 @@ piggy *= 3  # ['Babel', 'Babel', 'Babel']
 print(piggy)
 # '''
 
-
 ''' Методы списков
 # метод index()
 helloList = ['hello', 'greetings', 'hi',  'howdy', 'bonjour']
 
 print(helloList.index('hi')) # 2
-# ''' 
+# '''
 
 ''' методы append() и  insert()
 addList = ['cat', 'dog']
@@ -889,8 +883,7 @@ addList.append('kitty')
 print('append() kitty', addList)    # ['cat', 'dog', 'mouse']
 del addList[3] # del LIST[i] удаляет по индексу
 print('del[] kitty', addList)       # ['cat', 'dog', 'mouse']
-# ''' 
-
+# '''
 
 ''' # сортировка с помощью sort()
 sortCharList = ['d', 'c', 'b', 'a']
@@ -952,7 +945,7 @@ print(vegetables)
 vegetables.sort()
 # vegetables = ['carrot', 'pea', 'potato', 'squash']
 print(vegetables)
-# ''' 
+# '''
 
 '''
 # инверсия списка с помощью reversed()
@@ -988,7 +981,6 @@ fortune = magicBallMessages[random.randint(0, len(magicBallMessages)-1)]
 print(fortune)
 # '''
 
-
 ''' [ATBF_143] списковые типы данных
 nameString = 'Socrates'
 print(nameString[0]) # S
@@ -1000,7 +992,6 @@ print('do' in nameString or 'so' in nameString) # False
 for i in nameString:
     print(str.upper('-*- ' + i + ' -*-'))
 # '''
-
 
 ''' [ATBF_144] изменяемые и неизменяемые типы данных
 # kittyName = 'Kittify'
@@ -1031,7 +1022,6 @@ print('Удаление переменной "eggs" с помощью del')
 del eggs
 print(eggs)  # NameError: name 'eggs' is not defined
 # '''
-
 
 ''' Кортежи / Python Tuples
 
@@ -1070,7 +1060,6 @@ print(list(tupleBerry[1]))  # ['b', 'l', 'u', 'e', 'b', 'e', 'r', 'r', 'y']
 print(tuple(listVeg[0]))    # ('s', 'q', 'u', 'a', 's', 'h')
 # '''
 
-
 ''' [ATBF_148] Ссылки
 spam = 42 # spam ссылается на значение 42
 cheese = spam # cheese начинает ссылаться на значение spam, то есть 42
@@ -1098,27 +1087,42 @@ print(id(cheese), '< id списка в cheese')
 # переменная cheese ссылается на тот же список
 # '''
 
-# ''' [ATBF_148] тождественность и id в Python
+''' [ATBF_148] тождественность и id в Python
 testIdListOne = ['a', 'b', 'c']
 testIdListTwo = ['a', 'b', 'c']
 idTestListOneFirst = id(testIdListOne)
-print(id(testIdListOne), '< id testIdListOne')          # разные id
-print(id(testIdListTwo), '< id testIdListTwo', '\n')    # разные id
+print(id(testIdListOne), '< id testIdListOne')  # разные id
+print(id(testIdListTwo), '< id testIdListTwo', '\n')  # разные id
 
 # добавим в testIdListOne значение 'd'
 # append() не создаёт новый объект списка, он изменяет существующий список
 testIdListOne.append('d')
-print(id(testIdListOne), testIdListOne, \
-        '< id testIdListOne')  # id не изменился
-print(id(testIdListTwo), testIdListTwo, \
-        '< id testIdListTwo', '\n')
+print(id(testIdListOne), testIdListOne,
+      '< id testIdListOne')  # id не изменился
+print(id(testIdListTwo), testIdListTwo,
+      "< id testIdListTwo", '\n')
 
 # пересоздание testIdListOne с тем же набором значений
 testIdListOne = ['a', 'b', 'c', 'd']
 idTestListOneSecond = id(testIdListOne)
 
-print('Сравним id-значения списков testIdListOne: ', \
-        idTestListOneFirst,idTestListOneSecond, \
-        bool(idTestListOneFirst == idTestListOneSecond), sep='\n')
+print('Сравним id-значения списков testIdListOne: ',
+      idTestListOneFirst, idTestListOneSecond,
+      bool(idTestListOneFirst == idTestListOneSecond), sep='\n')
 # '''
 
+# ''' [ATBF_151] Передача ссылок
+def passingReference(someParameter):
+    someParameter.append('Hello')
+
+# создадим список
+linkList = [1, 2, 3]
+print(id(linkList), linkList)
+
+# передадим функции passingReference в качестве аргумента
+# переменную linkList, которая для passingReference
+# станет параметром
+passingReference(linkList)  # linkList - аргумент для функции pR
+
+print(id(linkList), linkList) # посмотрим id и вывод
+# '''
