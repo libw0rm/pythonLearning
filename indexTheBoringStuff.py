@@ -1322,7 +1322,7 @@ print(eggs == ham)  # True
 print(ham['name']) # Sofie
 # '''
 
-# ''' Словарь "Дни рождения"
+''' [ATBF_165] Словарь "Дни рождения"
 birthdays = {
     'Alice' : 'Apr 1',
     'Bob'   : 'Dec 12',
@@ -1344,5 +1344,49 @@ while True:
         bday = input()
         birthdays[input_name] = bday
         print('Birthday db updated')
+# '''
 
+# ''' [ATBF_166] Методы keys(), values(), items()
+birthdays = {
+    'Alice': 'Apr 1',
+    'Bob': 'Dec 12',
+    'Carol': 'Mar 4',
+    'Macy': 'Sep 17',
+}
+
+for v in birthdays.keys():
+    print('Вывод dict_keys:', v)
+for v in birthdays.values():
+    print('Вывод dict_values', v)
+for v in birthdays.items():
+    print('Вывод dict_items', v)
+
+# проверим классы
+checkForKeys = birthdays.keys()
+checkForValues = birthdays.values()
+checkForItems = birthdays.items()
+print() # отделим вывод новой строкой для комфорта
+print(type(checkForKeys))   # <class 'dict_keys'>
+print(checkForKeys, '\n')  
+print(type(checkForValues)) # <class 'dict_values'>
+print(checkForValues, '\n')
+print(type(checkForItems))  # <class 'dict_items'>
+print(checkForItems, '\n')
+
+# преобразование словаря в list и tuple
+transferList = list(checkForItems)
+transferTuple = tuple(checkForItems)
+print('Проверим тип у list(dict): ', type(transferList))
+print('Посмотрим содержимое: ', transferList, '\n') # кортеж в списке
+
+print('Проверим тип у tuple(dict): ', type(transferTuple)) 
+print('Посмотрим содержимое: ', transferTuple, '\n')  # кортеж в кортеже
+
+# преобразование в список с помощью методов
+print(list(birthdays.keys()))   # list
+print(list(birthdays.values())) # list
+print(list(birthdays.items()))  # tuple in list
+# '''
+
+# '''
 # '''
