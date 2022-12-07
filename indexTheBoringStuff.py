@@ -1145,7 +1145,6 @@ print(id(firstListCopy), firstListCopy)
 print(id(secondyListCopy), secondyListCopy)
 # '''
 
-
 ''' [ATBF_154-155] Игра "Жизнь"
 import random, time, copy
 WIDTH = 100
@@ -1275,7 +1274,7 @@ print('Type foo: ', type(list(foo))) # <class 'list'>
 print('Type bar: ', type(tuple(bar))) # <class 'tuple'>
 # '''
 
-# ''' Орёл и решка
+''' 💀 [.TROUBLE] Орёл и решка
 import random
 
 customerInput = int(input('Сколько раз подбрасываем? \n'))
@@ -1295,3 +1294,30 @@ for i in range(customerInput):
 print('Орлов выпало: ', countObverse, '\n''Решек выпало: ', countReverse)
 # print(outputList)
 # '''
+
+# ''' [ATBF_164] Словари
+myCatDict = {'size': 'fat',
+             'color': 'gray',
+             'disposition': 'loud'
+             }
+print(myCatDict['size'])
+
+numTestDict = {12345: 'PassOne', 42: 'Answer'}
+print(numTestDict[42])
+
+# сравнение словарей
+print(myCatDict == numTestDict)  # False
+
+eggs = {
+    'name': 'Sophie',
+    'species': 'cat',
+    'age': '8'}
+
+ham = {
+    'species': 'cat',
+    'age': '8',
+    'name': 'Sophie'}
+print(eggs == ham)  # True
+print(ham['name']) # Sofie
+# '''
+
