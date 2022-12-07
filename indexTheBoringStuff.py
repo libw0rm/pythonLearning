@@ -1206,7 +1206,8 @@ while True:
                 numNeighbors += 1  # жива клетка справа снизу
 
             # Изменение клетки на основе правил
-            if currentCells[x][y] == '#' and (numNeighbors == 2 or numNeighbors == 3):
+            if currentCells[x][y] == '#' and (numNeighbors == 2 or 
+                                                numNeighbors == 3):
                 # Живые клетки с 2 или 3 соседями остаются живыми
                 nextCells[x][y] = '#'
             elif currentCells[x][y] == ' ' and numNeighbors == 3:
@@ -1247,7 +1248,7 @@ bar = 'foo'
 print('Конкатанация: bar + foo > ', bar + foo)  # foobar
 print('Репликация: bar * foo > ', ((bar + foo) * 2), '\n')  # foobarfoobar
 
-# (159) Задание 10. В чем разница между списковыми методами append() и insert()?
+# (159) Задание 10. В чем разница между списковыми методами append() insert()?
 foo = ['f', 'o']
 bar = ['b', 'a']
 foo.append('0') # append() добавляет значение в конец списка
@@ -1295,7 +1296,7 @@ print('Орлов выпало: ', countObverse, '\n''Решек выпало: '
 # print(outputList)
 # '''
 
-# ''' [ATBF_164] Словари
+''' [ATBF_164] Словари
 myCatDict = {'size': 'fat',
              'color': 'gray',
              'disposition': 'loud'
@@ -1321,3 +1322,27 @@ print(eggs == ham)  # True
 print(ham['name']) # Sofie
 # '''
 
+# ''' Словарь "Дни рождения"
+birthdays = {
+    'Alice' : 'Apr 1',
+    'Bob'   : 'Dec 12',
+    'Carol' : 'Mar 4',
+    'Macy'  : 'Sep 17',
+}
+
+while True:
+    print("Enter name (<Enter> for exit): ")
+    input_name = input().capitalize()
+    if input_name == '':
+        break
+    
+    if input_name in birthdays:
+        print(input_name + ' is the birthday of ' + birthdays[input_name], '\n')
+    else:
+        print('I do not have birthday information for ' + input_name)
+        print('What is their birthday?')
+        bday = input()
+        birthdays[input_name] = bday
+        print('Birthday db updated')
+
+# '''
