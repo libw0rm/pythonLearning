@@ -1408,13 +1408,13 @@ print("Check 'Alice' in birthdays:", 'Alice' in birthdays)
 # True, есть ключ 'Alice' в словаре
 # '''
 
-''' Метод get()
+''' [ATBF_169] Метод get()
 picnitItems = {'apple' : 5, 'cup' : 2}
 print('Я несу', str(picnitItems.get('cup', 0)), 'чашки')
 print('Я несу', str(picnitItems.get('egg', 0)), 'яйца')
 # '''
 
-# ''' Метод setdefault()
+''' [ATBF_169] Метод setdefault()
 spam = {
     'name' : 'Piter',
     'age' : 5,
@@ -1428,4 +1428,18 @@ spam.setdefault('food', 'broccoli')
 spam.setdefault('food', 'burger') 
 # 🥦 Петя не будет жмякать бургер, потому что ключ 'food' занят брокколяшками
 print(spam)
+# '''
+
+# ''' character count
+import pprint
+message = 'it was a bright cold day in April, and the clock were striking thirteen.'
+count = {}
+
+for character in message:
+    count.setdefault(character, 0)
+    count[character] = count[character] + 1
+
+# print(count)
+# pprint.pprint(count)
+print(pprint.pformat(count))
 # '''
