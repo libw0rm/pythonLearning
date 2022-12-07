@@ -1352,41 +1352,58 @@ birthdays = {
     'Bob': 'Dec 12',
     'Carol': 'Mar 4',
     'Macy': 'Sep 17',
+    # 'Alice': 'Alice' # срока для разовых проверок значений
 }
 
-for v in birthdays.keys():
-    print('Вывод dict_keys:', v)
-for v in birthdays.values():
-    print('Вывод dict_values', v)
-for v in birthdays.items():
-    print('Вывод dict_items', v)
+# for v in birthdays.keys():
+#     print('Вывод dict_keys:', v)
+# for v in birthdays.values():
+#     print('Вывод dict_values', v)
+# for v in birthdays.items():
+#     print('Вывод dict_items', v)
 
-# проверим классы
-checkForKeys = birthdays.keys()
-checkForValues = birthdays.values()
-checkForItems = birthdays.items()
-print() # отделим вывод новой строкой для комфорта
-print(type(checkForKeys))   # <class 'dict_keys'>
-print(checkForKeys, '\n')  
-print(type(checkForValues)) # <class 'dict_values'>
-print(checkForValues, '\n')
-print(type(checkForItems))  # <class 'dict_items'>
-print(checkForItems, '\n')
+# # проверим классы
+# checkForKeys = birthdays.keys()
+# checkForValues = birthdays.values()
+# checkForItems = birthdays.items()
+# print() # отделим вывод новой строкой для комфорта
+# print(type(checkForKeys))   # <class 'dict_keys'>
+# print(checkForKeys, '\n')  
+# print(type(checkForValues)) # <class 'dict_values'>
+# print(checkForValues, '\n')
+# print(type(checkForItems))  # <class 'dict_items'>
+# print(checkForItems, '\n')
 
-# преобразование словаря в list и tuple
-transferList = list(checkForItems)
-transferTuple = tuple(checkForItems)
-print('Проверим тип у list(dict): ', type(transferList))
-print('Посмотрим содержимое: ', transferList, '\n') # кортеж в списке
+# # преобразование словаря в list и tuple
+# transferList = list(checkForItems)
+# transferTuple = tuple(checkForItems)
+# print('Проверим тип у list(dict): ', type(transferList))
+# print('Посмотрим содержимое: ', transferList, '\n') # кортеж в списке
 
-print('Проверим тип у tuple(dict): ', type(transferTuple)) 
-print('Посмотрим содержимое: ', transferTuple, '\n')  # кортеж в кортеже
+# print('Проверим тип у tuple(dict): ', type(transferTuple)) 
+# print('Посмотрим содержимое: ', transferTuple, '\n')  # кортеж в кортеже
 
 # преобразование в список с помощью методов
-print(list(birthdays.keys()))   # list
-print(list(birthdays.values())) # list
-print(list(birthdays.items()))  # tuple in list
-# '''
+list_keys_bday = list(birthdays.keys())   # list
+list_values_bday = list(birthdays.values()) # list
+list_items_bday = list(birthdays.items())  # tuple in list
 
-# '''
+# # "конвертируем" в список
+# print(list_keys_bday) # names
+# print(list_values_bday) # birthday date
+# print(list_items_bday) # tuple in list with names and date
+
+# посмотрим на вывод при запросе ключа у разных методов
+print("Check 'Alice' in list_keys_bday:", 'Alice' in list_keys_bday)    
+# True, есть ключ 'Alice'
+print("Check 'Alice' in list_values_bday:", 'Alice' in list_values_bday)  
+# False, нет значения 'Alice'
+print("Check 'Alice' in list_items_bday:", 'Alice' in list_items_bday)   
+# False, тк это список с кортежем, нужно указать, где ищем
+print("Check 'Alice' in list_items_bday with [0]:", 'Alice' in list_items_bday[0]) 
+# True
+# 
+# спросим без методов, есть ли Alice в словаре
+print("Check 'Alice' in birthdays:", 'Alice' in birthdays)  # True, есть ключ Alice
+
 # '''
