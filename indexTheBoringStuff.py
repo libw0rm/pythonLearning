@@ -1346,7 +1346,7 @@ while True:
         print('Birthday db updated')
 # '''
 
-# ''' [ATBF_166] Методы keys(), values(), items()
+''' [ATBF_166] Методы keys(), values(), items()
 birthdays = {
     'Alice': 'Apr 1',
     'Bob': 'Dec 12',
@@ -1403,7 +1403,29 @@ print("Check 'Alice' in list_items_bday:", 'Alice' in list_items_bday)
 print("Check 'Alice' in list_items_bday with [0]:", 'Alice' in list_items_bday[0]) 
 # True
 # 
-# спросим без методов, есть ли Alice в словаре
-print("Check 'Alice' in birthdays:", 'Alice' in birthdays)  # True, есть ключ Alice
+# спросим без методов, есть ли 'Alice' в словаре
+print("Check 'Alice' in birthdays:", 'Alice' in birthdays)  
+# True, есть ключ 'Alice' в словаре
+# '''
 
+''' Метод get()
+picnitItems = {'apple' : 5, 'cup' : 2}
+print('Я несу', str(picnitItems.get('cup', 0)), 'чашки')
+print('Я несу', str(picnitItems.get('egg', 0)), 'яйца')
+# '''
+
+# ''' Метод setdefault()
+spam = {
+    'name' : 'Piter',
+    'age' : 5,
+    }
+# добавим новый элемент 'color':'black'
+if 'color' not in spam:
+    spam['color'] = 'black'
+# добавим новый элемент 'food':'broccoli'
+spam.setdefault('food', 'broccoli')
+# заменим 'food':'broccoli' на 'food':'burger'
+spam.setdefault('food', 'burger') 
+# 🥦 Петя не будет жмякать бургер, потому что ключ 'food' занят брокколяшками
+print(spam)
 # '''
