@@ -1443,3 +1443,14 @@ for character in message:
 # pprint.pprint(count)
 print(pprint.pformat(count))
 # '''
+
+# ''' [ATBF_174] Крестики-Нолики
+
+theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': ' ',
+            }
+# print(theBoard.items['top-L']) # проверка словаря
+print('low-L' in theBoard.keys())
+# '''
+
