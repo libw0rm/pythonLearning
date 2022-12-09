@@ -130,7 +130,7 @@ print('hash(enemy): ', hash(enemy))
 # print('Doyle' in keyboard_dict)
 # '''
 
-# ''' 
+''' Fibonachi
 def mult(a, b):
     i = 0
     while i <= 10:
@@ -138,3 +138,106 @@ def mult(a, b):
         print(b)
         i += 1
 mult(0, 1)
+# '''
+
+
+# ''' methods l/r/sprip()
+# a = '  python  '
+# b = 'python'
+# c = 'c++'
+# print('strip:' + a.strip() + '.') # 'python'
+# print('lstrip:' + a.lstrip() + '.')  # 'python•'
+# print('rstrip:' + a.rstrip() + '.')  # '•python'
+# print('\t', b)
+# print('\t\n', b,)
+# print('\n\t', b,)
+# print(c)
+# print('\n\t' + b + '\r', c)
+# print(b, '\n', c)
+# print(b, '\n' + c)
+# # '''
+
+# num = 10_000
+# print(num)
+
+# '''
+# '''
+# o = 1
+# m = 2
+# g = 3
+
+# hash_o= hash(str(o))
+# hash_m= hash(str(m))
+# hash_g= hash(str(g))
+
+# print('id(o):', id(o), '| hash_(str(o)) >' + str(hash_o), '| hash(o)>', hash(o))
+# print('id(m):', id(m), '| hash_(str(m)) >' + str(hash_m), '| hash(m)>', hash(m))
+# print('id(g):', id(g), '| hash_(str(g)) >' + str(hash_g), '| hash(g)>', hash(g))
+
+# # hash for integer unchanged
+# print('Hash for 181 is:', hash(181))
+# # hash for decimal
+# print('Hash for 181.23 is:', hash(181.23))
+# # hash for string
+# print('Hash for Python is:', hash('Python'))
+
+# 'a'   'b'   'c'   'd'  'e'
+
+# СПИСКИ В PYTHON
+animalListAU = ['quokka', 'capybara', 'wombat', 'qoull']
+print(animalListAU)
+# ['quokka', 'capybara', 'wombat', 'qoull']
+
+# присоединение элемента в конец списка
+animalListAU.append('kengoo')
+print(animalListAU)
+# ['quokka', 'capybara', 'wombat', 'qoull', 'kengoo']
+
+# присоединение элемента в прозвольную позицию списка
+animalListAU.insert(0, 'devil')
+print(animalListAU)
+# ['devil', 'quokka', 'capybara', 'wombat', 'qoull', 'kengoo']
+
+# удаление элемента с известной позицией
+del animalListAU[0]
+print(animalListAU)
+# ['quokka', 'capybara', 'wombat', 'qoull', 'kengoo']
+
+# удаление последнего элемента
+animalListAU.pop()
+print(animalListAU)
+# ['quokka', 'capybara', 'wombat', 'qoull']
+
+# удаление с pop() по индексу
+animalListAU.pop(2)
+print(animalListAU)
+# ['quokka', 'capybara', 'qoull']
+
+# удаление элемента по значению
+animalListAU.remove('capybara')
+print(animalListAU)
+# ['quokka', 'qoull']
+
+animalListAU = ['quokka', 'capybara', 'wombat', 'qoull']
+print(animalListAU)
+auid = id(animalListAU)
+
+# сортировка списка перезаписывает индекс и значение исходного списка
+# id списка остаётся прежним
+animalListAU.sort()
+print(animalListAU)
+# ['capybara', 'qoull', 'quokka', 'wombat']
+
+# сортировка обратная
+# animalListAU.sort(reverse=True)
+animalListAU.reverse()
+# ['wombat', 'quokka', 'qoull', 'capybara']
+
+# временная сортировка sorted()
+print(sorted(animalListAU))
+# ['capybara', 'qoull', 'quokka', 'wombat']
+
+# длина списка
+print(len(animalListAU))
+print(id('reverse', animalListAU))
+
