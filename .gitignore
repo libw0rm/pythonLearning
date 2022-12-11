@@ -6,3 +6,4 @@
  pdfFolder/
 # Обучающие файлы в PDF
  pdfFolder/*
+quizPythonTraining.py

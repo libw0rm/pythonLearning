@@ -183,6 +183,7 @@ mult(0, 1)
 
 # 'a'   'b'   'c'   'd'  'e'
 
+'''
 # СПИСКИ В PYTHON
 animalListAU = ['quokka', 'capybara', 'wombat', 'qoull']
 print(animalListAU)
@@ -239,5 +240,13 @@ print(sorted(animalListAU))
 
 # длина списка
 print(len(animalListAU))
-print(id('reverse', animalListAU))
+print('reverse', animalListAU)
 
+for value in animalListAU:
+    print(value)
+# '''
+
+# square = [value ** 2 for value in range(1, 11)]
+# print(min(square))
+# print(max(square))
+# print(sum(square))
