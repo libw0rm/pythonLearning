@@ -1562,7 +1562,7 @@ print(f" - ham sandwiches {totalBrought(allGuests, 'ham sandwiches')}")
 print(f" - apple pies     {totalBrought(allGuests, 'apple pies')}")
 # '''
 
-''' [ATBF_186] СТРОКИ / STRINGS
+# ''' [ATBF_186] СТРОКИ / STRINGS
 # методы upper(), lower(), isupper(), and islower() Methods
 foo = 'foo'
 bar = 'monkeyball'
@@ -1651,6 +1651,15 @@ print(f' song.rjust(52)  + len()  | {song.rjust(52)} : len({len(song.rjust(52))}
 print(f' song.rjust(42)  + len()  | {song.rjust(42)} : len({len(song.rjust(42))})')
 print(f' song.rjust(20)  + len()  | {song.rjust(20)} : len({len(song.rjust(20))})')
 print(f' song.center(70, ".")     | {song.center(70, ".")}')
+
+# метод strip() с аргументом
+# метод strip() чувствителен к регистру
+spam = 'pythpythpythc++pythpy'
+
+print('\n метод strip() с параметром:')
+print(' --------------------------')
+
+print(f' spam.strip("ypht") | {spam.strip("ypht")}')
 # '''
 
 
@@ -1669,27 +1678,29 @@ printPicnic(picnicItems, 16, 5)
 # '''
 
 
+# ''' ord() и chr()
+# ord() переводит символ в код Unicode
+print('\v перевод символов Unicode \n в кодовое представление:')
+print(' ------------------------')
+
+print(f" ord('A') | {ord('A')}") # 65
+print(f" ord('4') | {ord('4')}") # 52 
+print(f" ord('N') | {ord('N')}") # 78
+
+# ord() переводит код Unicode в символ
+print(f" chr(65)  | {chr(65)}") # 'A'
+print(f" chr(52)  | {chr(52)}") # '4'
+print(f" chr(49)  | {chr(49)}") # '1' 
+
+print(f"\v ord('A') < ord('B') | {ord('A') < ord('B')}")
+print(f" ord('A') == chr(65) | {ord('A') == ord(chr(65))}")
+print(f" chr(ord('A'))       | {chr(ord('A'))}")
+print(f" chr(ord('A') + 1)   | {chr(ord('A') + 1)}")
+print(f" chr(ord('A') * 5)   | {chr(ord('A') * 5)}")
+# умножая код 65(A) * 5 получаем 325(Ņ)
+# '''
 
 
+# '''
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-''' ⌘ функция для заголовков
-def format(int, str):
-    return (f"# [ATBF_{int}] {str.upper()}")
-
-print(format(0, 'Строковые литералы и операции'))
 # '''
