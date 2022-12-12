@@ -618,7 +618,7 @@
 
 ''' Получение фрагмента списка с помощью среза и отрицательные индексы
 animalListAU = ['quokka', 'capybara', 'wombat', 'qoull']
-animalListRU = ['viper', 'bear', 'wolf', 'crane']
+animalListRU = ['viper', 'bear', 'wolf' , 'crane']
 animalListCA = ['beaver', 'linx', 'bison', 'puffin']
 animalListSumm = [animalListAU, animalListRU, animalListCA]
 
@@ -655,7 +655,7 @@ print(len(animalListSumm[0])) # 4 индекса
 
 ''' Изменение элементов списка с помощью индексов
 animalListAU = ['quokka', 'capybara', 'wombat', 'qoull']
-animalListRU = ['viper', 'bear', 'wolf', 'crane']
+animalListRU = ['viper', 'bear', 'wolf' , 'crane']
 animalListCA = ['beaver', 'linx', 'bison', 'puffin']
 animalListSumm = [animalListAU, animalListRU, animalListCA]
 
@@ -705,7 +705,7 @@ print(changeListNumber)  # [0, 1, 2]
 
 '''
 concatListStrOne = ['a', 'b', 'c']
-concatListStrTwo = ['d', 'e', 'f']
+concatListStrTwo = ['d', 'e', 'f' ]
 concatListIntOne = [1, 2, 3]
 concatListIntTwo = [4, 5, 6]
 
@@ -1228,7 +1228,7 @@ spam[2] = 'hello'
 spam
 
 # (159) Задания 3, 4, 5
-spam = ['а', 'b', 'с', 'f', 'd']
+spam = ['а', 'b', 'с', 'f' , 'd']
 spam[int('3' * 2) // 11]
 # '3' * 2 = '33' => int('33') // 11 == [3]
 spam[-1]  # 'd'
@@ -1249,7 +1249,7 @@ print('Конкатанация: bar + foo > ', bar + foo)  # foobar
 print('Репликация: bar * foo > ', ((bar + foo) * 2), '\n')  # foobarfoobar
 
 # (159) Задание 10. В чем разница между списковыми методами append() insert()?
-foo = ['f', 'o']
+foo = ['f' , 'o']
 bar = ['b', 'a']
 foo.append('0') # append() добавляет значение в конец списка
 bar.insert(2, 'r') # insert() добавляет значение по индексу со смещением
@@ -1259,7 +1259,7 @@ print(bar, 'insert() добавляет значение по индексу с�
 # (159) Задание 11. Два способа удаления значений из списков
 foo.remove('0') # удаление по значению
 del bar[2] # удаление по индексу
-print(foo)  # ['f', 'o']
+print(foo)  # ['f' , 'o']
 print(bar)  # ['b', 'a']
 
 # (159) Задания 14, 15. 
@@ -1520,9 +1520,9 @@ L.index(X)
 L.count(X)
 
 # методы:
-L.sort() # пересобирает список по правилам
+L.sort()    # пересобирает список по правилам
 L.reverse() # возвращает список в обратной последовательности
-L.clear() # очищает список до []
+L.clear()   # очищает список до []
 
 # методы: уменьшение
 L.pop(i)
@@ -1541,7 +1541,141 @@ list(map(ord, spam))
 # '''
 
 
-# ''' [ATBF_179] Вложенные словари и списки
+''' [ATBF_179] Вложенные словари и списки
+allGuests = {'Alice': {'apples': 5, 'pretzels': 12},
+            'Bob': {'ham sandwiches': 3, 'apples': 2},
+            'Carol': {'cups': 3, 'apple pies': 1}
+            }
+def totalBrought(guests, item):
+    numBrought = 0
+    for k, v in guests.items():
+        numBrought = numBrought + v.get(item, 0)
+    return numBrought
 
 
+print('Number of things being brought:')
+
+print(f" - Apples         {totalBrought(allGuests, 'apples')}")
+print(f" - cups           {totalBrought(allGuests, 'cups')}")
+print(f" - cakes          {totalBrought(allGuests, 'cakes')}")
+print(f" - ham sandwiches {totalBrought(allGuests, 'ham sandwiches')}")
+print(f" - apple pies     {totalBrought(allGuests, 'apple pies')}")
+# '''
+
+# ''' СТРОКИ / STRINGS
+# методы upper(), lower(), isupper(), and islower() Methods
+foo = 'foo'
+bar = 'monkeyball'
+fooList = ['Foo', 'Fighters']
+song = 'The Pretender, Everlong, My Hero'
+
+print('\n методы upper(), lower(), isupper(), and islower():')
+print(' --------------------------------------------------')
+# вывод заглавными/прописными буквами
+print(f' {foo.upper()}  | foo.upper())')
+
+# вывод строчными буквами
+print(f' {foo.lower()}  | foo.lower())')
+
+# проверка есть ли строчные буквы в строке
+print(f' {foo.islower()} | foo.islower())')
+
+# проверка есть ли прописные буквы в строке
+print(f' {foo.isupper()}| foo.isupper())')
+
+# изменение регистра и проверка есть ли строчные буквы в строке
+print(f' {foo.upper().isupper()} | foo.upper().isupper()')
+
+# методы startswith() и endswith()
+print('\n startswith() и endswith() for \'monkeyball\':')
+print(' -------------------------------------------')
+print(f' {bar.startswith("mon")}  | bar.STARTswith("mon")')  # True
+print(f' {bar.startswith("ball")} | bar.STARTswith("ball")') # False
+print(f' {bar.endswith("mon")} | bar.ENDswith("mon")')       # False
+print(f' {bar.endswith("ball")}  | bar.ENDswith("ball")')    # True
+
+# методы join() и split()
+
+print('\n метод join():')
+print(' -------------')
+# ВАЖНО! Cтрока, для которой вызывается метод join(arg),
+# вставляется между элементами списка
+
+print(f" {' '.join(fooList)} | ' '.join(fooList)") # Foo Fighters
+print(f" {'•'.join(fooList)} | '•'.join(fooList)") # Foo•Fighters
+
+# метод split() вызывается для строки с последующим созданием списка из неё
+print('\n метод split():')
+print(' --------------')
+# обычный вывод
+print(f' print(song)        | The Pretender, Everlong, My Hero')
+
+# вывод с split()
+print(f' song.split()       | {song.split()}')
+# по умолчанию строка разбивается в тех местах, 
+# где встречаются пробельные символы: 
+# пробел ' ', табуляция '\t', новая строка '\n'
+# но можно передать в качестве аргумента и другие значения
+print(f' song.split("e")    | {song.split("e")}')
+# ['Th', ' Pr', 't', 'nd', 'r, Ev', 'rlong, My H', 'ro']
+
+# проверим тип данных для song
+print(f' type(song)         | {type(song)}')
+
+# проверим тип данных для song.split()
+print(f' type(song.split()) | {type(song.split())}')
+
+# Разбиение строк с помощью метода partition()
+# метод разбивает строку на кортеж
+# ДО разделителя, РАЗДЕЛИТЕЛЬ, после разделителя
+print('\n метод partition():')
+print(' -----------------')
+
+print(f' song.partition("Pretender") | {song.partition("Pretender")}')
+# ('The ', 'Pretender', ', Everlong, My Hero')
+
+# если аргумент встречается несколько раз,
+# то метод разбивает строку только на первом разделителе
+print(f' song.partition("e")         | {song.partition("e")}')
+# ('Th', 'e', ' Pretender, Everlong, My Hero')
+
+# если аргумент не встречается ни разу, то создаётся кортеж ('string', '', '')
+print(f' song.partition("q")         | {song.partition("q")}')
+('The Pretender, Everlong, My Hero', '', '')
+
+# методы rjust(), ljust(), center()
+print('\n методы r/ljust(), center():')
+print(' --------------------------')
+print(f' len(song) == {len(song)}')
+print(f' song.rjust(52)  + len()  | {song.rjust(52)} : len({len(song.rjust(52))})')
+print(f' song.rjust(42)  + len()  | {song.rjust(42)} : len({len(song.rjust(42))})')
+print(f' song.rjust(20)  + len()  | {song.rjust(20)} : len({len(song.rjust(20))})')
+print(f' song.center(70)  + len() | {song.center(70, ".")} : len({len(song.center(70))})')
+# '''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+''' ⌘ функция для заголовков
+def format(int, str):
+    return (f"# [ATBF_{int}] {str.upper()}")
+
+print(format(0, 'Строковые литералы и операции'))
 # '''
