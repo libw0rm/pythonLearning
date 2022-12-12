@@ -1562,7 +1562,7 @@ print(f" - ham sandwiches {totalBrought(allGuests, 'ham sandwiches')}")
 print(f" - apple pies     {totalBrought(allGuests, 'apple pies')}")
 # '''
 
-# ''' СТРОКИ / STRINGS
+''' [ATBF_186] СТРОКИ / STRINGS
 # методы upper(), lower(), isupper(), and islower() Methods
 foo = 'foo'
 bar = 'monkeyball'
@@ -1650,9 +1650,23 @@ print(f' len(song) == {len(song)}')
 print(f' song.rjust(52)  + len()  | {song.rjust(52)} : len({len(song.rjust(52))})')
 print(f' song.rjust(42)  + len()  | {song.rjust(42)} : len({len(song.rjust(42))})')
 print(f' song.rjust(20)  + len()  | {song.rjust(20)} : len({len(song.rjust(20))})')
-print(f' song.center(70)  + len() | {song.center(70, ".")} : len({len(song.center(70))})')
+print(f' song.center(70, ".")     | {song.center(70, ".")}')
 # '''
 
+
+''' Picnic Table
+def printPicnic(itemDict, leftWidth, rightWidth):
+    print('PICNIC YAMMY'.center(leftWidth + rightWidth, '-'))
+    for k, v in itemDict.items():
+        print(k.ljust(leftWidth, '-') + str(v).rjust(rightWidth))
+
+picnicItems = {'sandwiches' : 4, 
+                'apples'    : 12, 
+                'cups'      : 4, 
+                'cookies'   : 9000}
+
+printPicnic(picnicItems, 16, 5)
+# '''
 
 
 
