@@ -137,51 +137,20 @@ def mult(a, b):
         a, b = b, b + a
         print(b)
         i += 1
+        
 mult(0, 1)
 # '''
 
+''' Factorial
+def factorial(x):
+    if x == 1:
+        return 1
+    else:
+        return (x * factorial(x-1))
 
-# ''' methods l/r/sprip()
-# a = '  python  '
-# b = 'python'
-# c = 'c++'
-# print('strip:' + a.strip() + '.') # 'python'
-# print('lstrip:' + a.lstrip() + '.')  # 'python•'
-# print('rstrip:' + a.rstrip() + '.')  # '•python'
-# print('\t', b)
-# print('\t\n', b,)
-# print('\n\t', b,)
-# print(c)
-# print('\n\t' + b + '\r', c)
-# print(b, '\n', c)
-# print(b, '\n' + c)
-# # '''
-
-# num = 10_000
-# print(num)
-
+print(factorial(10))
 # '''
-# '''
-# o = 1
-# m = 2
-# g = 3
 
-# hash_o= hash(str(o))
-# hash_m= hash(str(m))
-# hash_g= hash(str(g))
-
-# print('id(o):', id(o), '| hash_(str(o)) >' + str(hash_o), '| hash(o)>', hash(o))
-# print('id(m):', id(m), '| hash_(str(m)) >' + str(hash_m), '| hash(m)>', hash(m))
-# print('id(g):', id(g), '| hash_(str(g)) >' + str(hash_g), '| hash(g)>', hash(g))
-
-# # hash for integer unchanged
-# print('Hash for 181 is:', hash(181))
-# # hash for decimal
-# print('Hash for 181.23 is:', hash(181.23))
-# # hash for string
-# print('Hash for Python is:', hash('Python'))
-
-# 'a'   'b'   'c'   'd'  'e'
 
 '''
 # СПИСКИ В PYTHON
@@ -250,3 +219,17 @@ for value in animalListAU:
 # print(min(square))
 # print(max(square))
 # print(sum(square))
+
+'''
+for d in range(1, 10000):
+    n = 3
+    s = 38
+    while s <= 1200:
+        s = s + d
+        n = n + 7 
+    if n == 150:
+        print(f' d{d}:n{n}:s{s}')
+# '''
+
+
+

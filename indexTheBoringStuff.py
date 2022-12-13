@@ -1562,7 +1562,7 @@ print(f" - ham sandwiches {totalBrought(allGuests, 'ham sandwiches')}")
 print(f" - apple pies     {totalBrought(allGuests, 'apple pies')}")
 # '''
 
-# ''' [ATBF_186] СТРОКИ / STRINGS
+''' [ATBF_186] СТРОКИ / STRINGS
 # методы upper(), lower(), isupper(), and islower() Methods
 foo = 'foo'
 bar = 'monkeyball'
@@ -1678,7 +1678,7 @@ printPicnic(picnicItems, 16, 5)
 # '''
 
 
-# ''' ord() и chr()
+''' ord() и chr()
 # ord() переводит символ в код Unicode
 print('\v перевод символов Unicode \n в кодовое представление:')
 print(' ------------------------')
@@ -1700,7 +1700,75 @@ print(f" chr(ord('A') * 5)   | {chr(ord('A') * 5)}")
 # умножая код 65(A) * 5 получаем 325(Ņ)
 # '''
 
+# ''' 🐷 PIG LATIN Translate engine 🚒
+# создадим кортеж с гласными буквами
+VOWELS = ('а', 'е', 'i', 'o', 'u', 'у')
 
+# запросим слово у пользователя
+# message = input('Enter word: ')
+message = 'brain FM is loosers'
+
+# список слов на 🐷 латыни
+pigLatin = [] 
+
+# основной цикл программы
+for word in message.split():
+
+    # отделяем небуквенные символы в начале слова
+    prefixNonLetters = '' # объект для небуквенных символов в начале
+    while len(word) == 0 and word[0].isalpha():
+        # метод isalpha() - проверка на небуквенные символы
+        prefixNonLetters += word[0]
+        word += word[1:]
+    if len(word) == 0:
+        pigLatin.append(prefixNonLetters)
+        continue
+
+    # отделяем небуквенные символы в конце слова
+    suffixNonLetter = '' # объект для небуквенных символов в конце
+    while not word[-1].isalpha:
+    # цикл while выполняется пока в строке имеются небуквенные символы
+        suffixNonLetter += word[-1]
+        word = word[:-1]
+        # наденные символы записываются в конец списка word
+    
+    # запоминаем регист слова
+    wasUpper = word.isupper()
+    wasTitle = word.istitle()
+
+    word = word.lower() # перевод в нижний регистр
+
+    # отделяем согласные в начале слова
+    prefixConsonants = ''
+    while len(word) > 0 and not word[0] in VOWELS:
+        prefixConsonants += word[0]
+        word = word[1:]
+    
+    # добавляем финальный слог
+    if prefixConsonants != '':
+        word += prefixConsonants + 'ay'
+    else:
+        word += 'yay'
+    
+    # возвращаем исходный регистр
+    # 👻 пока что не работает
+    if wasUpper:
+        word = word.upper()
+    if wasTitle:
+        word = word.title()
+    
+    # возвращаем небуквенные символы
+    pigLatin.append(prefixNonLetters + word + suffixNonLetter)
+
+# соединяем слова обратно в строку
+
+print('\v', '•'.join(pigLatin))
 # '''
 
-# '''
+def factorial(x):
+    if x == 1:
+        return 1
+    else:
+        return (x * factorial(x-1))
+
+print(factorial(300))
