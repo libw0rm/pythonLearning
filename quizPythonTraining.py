@@ -23,7 +23,7 @@ x = + 1
 f1()
 # '''
 
-''' Q[004]
+''' Q[004] Что выведет (a)
 a = {3, 4, 5}
 a.update([1, 2, 3])
 print(a)
@@ -50,6 +50,14 @@ print('id_(q[1][1]-5):', id(q[1][1]), '<-', q[1][1])
 print('id_(q[1][2]-6):', id(q[1][2]), '<-', q[1][2])
 print('id_foo(x[0][0]-d):', id(foo([0][0])), '<-', z, '<->', foo([0][0]))
 # '''
+
+# ''' Q[006] Какой тип у (X)
+x = {x for x in range(3)}
+print(type(x))
+# '''
+
+
+
 
 ''' [$Perversions] String and methods
 clear = 'Keychrone K6 RGB HotSwap'
@@ -325,3 +333,31 @@ def blackPlace():
 #         i += 1
 
 # print(multiplyIndex(8))
+
+''' [Tool] Multiplication table generator
+def multiplication_table_generator():
+    multiplier = 1
+    multiplicand = 1
+    for multiplier in range(1, 10):
+        for multiplicand in range(1, 10):
+            product = multiplier * multiplicand
+            print(f'{multiplier} x {multiplicand} = {product }')
+
+multiplication_table_generator()
+# ''' 
+
+''' [Tool] Multiplication function with parameters
+def multiplication_table_user_mode(intX, intY):
+    # math
+    product = intX * intY
+
+    # output at screen
+    # print(f'{intX} x {intY} = {product}')
+    return (f'{intX} x {intY} = {product}')
+
+print(multiplication_table_user_mode(4, 10))
+# ''' 
+
+# ''' 
+
+# ''' 

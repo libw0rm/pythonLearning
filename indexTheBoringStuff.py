@@ -1768,6 +1768,93 @@ for word in message.split(): # разделим строку на список
 print('\v', ' '.join(pigLatin))
 # '''
 
-# '''
+''' 💀 [.TROUBLE][ATBF_214] The Table
 
 # '''
+
+# # ГЛАВА 7. RegEx
+
+''' [ATBF_223] Поиск телефонного номера
+def isPhoneNumber(text):
+    if len(text) != 12:
+        return False
+    for i in range(0, 3):
+        if not text[i].isdecimal():
+            return False
+    if text[3] != '-':
+        return False
+    for i in range(4, 7):
+        if not text[i].isdecimal():
+            return False
+    if text[7] != '-':
+        return False
+    for i in range(8, 12):
+        if not text[i].isdecimal():
+            return False
+    return True
+
+# print(isPhoneNumber('415-666-1313'))
+
+message = 'Call•me•back•at•number•415-666-1313•\
+           or•999-666-1313,•415-666-131A'
+
+for i in range(len(message)):
+    chunk = message[i:i+12]
+    if len(chunk) != 12:
+        break
+    # print(f'iteration #{i}: {chunk}')
+    if isPhoneNumber(chunk):
+        print(f'\viteration #{i}: {chunk}\n')
+print('Done')
+#'''
+
+#''' [ATBF_225] Поиск номера с помощью RegEx
+import re
+
+message = 'Call•me•back•at•number•415-666-1313•\
+           or•999-666-1313,•(415)-666-1314'
+
+# phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+# # phoneNumRegexGroup = re.compile(r'(\d\d\d)-(\d\d\d)-(\d\d\d\d)')
+# phoneNumRegexGroup = re.compile(r'(\d+)-(\d+)-(\d+)')
+# phoneNumRegexBack = re.compile(r'(\(\d+\)-\d+.\d+)')
+
+# moOne = phoneNumRegex.search(message)
+# moTwo = phoneNumRegexGroup.search(message)
+# moThree = phoneNumRegexBack.search(message)
+
+# print(moOne.group()) # 415-666-1313
+# print(moOne.group()) # 415-666-1313
+# print(moTwo.group()) # 415-666-1313
+# print(moThree.group()) # (415)-666-131
+
+dcHeroString = 'Batman, Superman, Aquaman, Flash'
+dcBatString = 'Batman have is Batpad, Batcar and Batphone. Where is Batwoman?'
+dcBWString = 'Batwoman have is Batpad, Batcar and Batphone. Where is Batman?'
+# dcRegExAq = re.compile(r'Superman|Aquaman|Batman')
+dcRegExAq  = re.compile(r'Aquaman|Superman')
+dcRegExBat = re.compile(r'Bat(pad|car|phone)')
+dcRegExBW  = re.compile(r'Bat(wo)?man')
+dcRegExBat = re.compile(r'Bat(wo)?man')
+
+print(f'{dcRegExAq.search(dcHeroString).group()}')  # Superman
+print(f'{dcRegExBat.search(dcBatString).group()}')  # Batpad
+print(f'{dcRegExBW.search(dcBWString).group()}')    # Batwoman
+print(f'{dcRegExBW.search(dcBatString).group()}')   # Batman
+
+x = {x for x in range(3)}
+print(type(x))
+
+''' пяматка по синтаксису RE
+.   =>  символ любого символа
+^   =>  символ начала строки 
+*   =>   
++   =>   
+?   =>   необязательная часть шаблона
+{}  =>   
+[]  =>   
+()  =>  
+\   =>  
+|   =>  логическое ИЛИ - вернёт первое соответствие
+#'''
+
