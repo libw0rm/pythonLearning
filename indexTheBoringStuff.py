@@ -1831,30 +1831,44 @@ message = 'Call•me•back•at•number•415-666-1313•\
 dcHeroString = 'Batman, Superman, Aquaman, Flash'
 dcBatString = 'Batman have is Batpad, Batcar and Batphone. Where is Batwoman?'
 dcBWString = 'Batwoman have is Batpad, Batcar and Batphone. Where is Batman?'
-# dcRegExAq = re.compile(r'Superman|Aquaman|Batman')
-dcRegExAq  = re.compile(r'Aquaman|Superman')
-dcRegExBat = re.compile(r'Bat(pad|car|phone)')
-dcRegExBW  = re.compile(r'Bat(wo)?man')
-dcRegExBat = re.compile(r'Bat(wo)?man')
-
+dcRegExAq = re.compile(r'Superman|Aquaman|Batman')
 print(f'{dcRegExAq.search(dcHeroString).group()}')  # Superman
-print(f'{dcRegExBat.search(dcBatString).group()}')  # Batpad
-print(f'{dcRegExBW.search(dcBWString).group()}')    # Batwoman
-print(f'{dcRegExBW.search(dcBatString).group()}')   # Batman
 
-x = {x for x in range(3)}
-print(type(x))
+dcRegExBat = re.compile(r'Bat(pad|car|phone)')
+print(f'{dcRegExBat.search(dcBatString).group()}')  # Batpad
+
+dcRegExBW  = re.compile(r'Bat(wo)?man')
+print(f'{dcRegExBW.search(dcBWString).group()}')  # Batwoman
+
+dcRegExBat = re.compile(r'Bat(wo)?man')
+print(f'{dcRegExBW.search(dcBatString).group()}')  # Batman
 
 ''' пяматка по синтаксису RE
-.   =>  символ любого символа
-^   =>  символ начала строки 
-*   =>   
-+   =>   
-?   =>   необязательная часть шаблона
-{}  =>   
-[]  =>   
-()  =>  
-\   =>  
-|   =>  логическое ИЛИ - вернёт первое соответствие
+.       => любой символ, креме \n 
+^       => начало строки
+$       => конец строки
+*       => повторение RE, жадный поиск
++       => повторение RE, жадный поиск
+?       => нежадные версии ( * ) и ( + ) 
+{...}   => повторение RE от m до n раз: {m.n}
+[...]   => любой символ из набора в []: [a..zA..z]
+[^...]  => любой символ НЕ из набора в []: [a..zA..z]
+(...)   => выделение группы: (\d+\w+)
+\       => экранирование
+|       => логическое ИЛИ - вернёт первое соответствие
+\7      => 
+\A      => 
+\b      => 
+\B      => 
+\d      => 
+\D      => 
+\s      => 
+\S      => 
+\w      => 
+\W      => 
+\Z      => 
+\\  
+\   
+\
 #'''
 

@@ -2,8 +2,5 @@
 .DS_Store
 # системная JetBrains
 .idea/
-# Обучающие файлы в PDF
- pdfFolder/
-# Обучающие файлы в PDF
- pdfFolder/*
+# файл с тренировочными заданиями
 quizPythonTraining.py

@@ -358,6 +358,33 @@ def multiplication_table_user_mode(intX, intY):
 print(multiplication_table_user_mode(4, 10))
 # ''' 
 
-# ''' 
 
-# ''' 
+# a = int(input('Enter first: '))
+# b = int(input('Enter second: '))
+a = 64187263498761287364761425199182531
+b = 12765497168234781629351234147122
+i = 1
+
+# # первый вариает
+# while b != 0:
+#     i += 1
+#     print(f'Debug case [{i}] start> {a}:{b}')
+#     if a > b:
+#         a -= b
+#     else:
+#         b -= a
+#         print(f'Debug case ELSE> {a}:{b}')
+#     print(f'{a+b}, {i}')
+
+while a >= 0 or b >= 0:
+    i += 1
+    print(f'DEBUG case [{i}] start> {a}:{b}')
+
+    if a > b:
+        print(f'DEBUG case preIF> {a}:{b}')
+        a %= b
+        print(f'DEBUG case IF> {a}:{b}')
+    elif b > a:
+        b %= a
+        print(f'DEBUG case ELSE> {a}:{b}')
+print(f'result = {a+b}, count = {i}')
