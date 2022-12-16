@@ -1823,52 +1823,128 @@ message = 'Call•me•back•at•number•415-666-1313•\
 # moTwo = phoneNumRegexGroup.search(message)
 # moThree = phoneNumRegexBack.search(message)
 
-# print(moOne.group()) # 415-666-1313
-# print(moOne.group()) # 415-666-1313
-# print(moTwo.group()) # 415-666-1313
-# print(moThree.group()) # (415)-666-131
+# print(moOne.group())    # 415-666-1313
+# print(moOne.group())    # 415-666-1313
+# print(moTwo.group())    # 415-666-1313
+# print(moThree.group())  # (415)-666-131
 
-dcHeroString = 'Batman, Superman, Aquaman, Flash'
-dcBatString = 'Batman have is Batpad, Batcar and Batphone. Where is Batwoman?'
-dcBWString = 'Batwoman have is Batpad, Batcar and Batphone. Where is Batman?'
-dcRegExAq = re.compile(r'Superman|Aquaman|Batman')
-print(f'{dcRegExAq.search(dcHeroString).group()}')  # Superman
+phoneNumbers = '123-456-789\
+                123456789\
+                (000)-123-456-789\
+                (000 123456789\
+                000- 123456789\
+                000123-456-789\
+                (000) 123 456 789'
 
-dcRegExBat = re.compile(r'Bat(pad|car|phone)')
-print(f'{dcRegExBat.search(dcBatString).group()}')  # Batpad
+# ''' примитивные способы поиска с RE
+# 🤘 123-456-789
+print(re.compile(r'(\d+.)*').search(phoneNumbers))
 
-dcRegExBW  = re.compile(r'Bat(wo)?man')
-print(f'{dcRegExBW.search(dcBWString).group()}')  # Batwoman
+# 💀 123456789
+print(re.compile(r'\d+').search(phoneNumbers))
 
-dcRegExBat = re.compile(r'Bat(wo)?man')
-print(f'{dcRegExBW.search(dcBatString).group()}')  # Batman
+# 🤘 (000)-123-456-789
+print(re.compile(r'(\(\d+\)).(\d+.)(\d+).(\d+)').search(phoneNumbers))
 
-''' пяматка по синтаксису RE
-.       => любой символ, креме \n 
-^       => начало строки
-$       => конец строки
-*       => повторение RE, жадный поиск
-+       => повторение RE, жадный поиск
-?       => нежадные версии ( * ) и ( + ) 
-{...}   => повторение RE от m до n раз: {m.n}
-[...]   => любой символ из набора в []: [a..zA..z]
-[^...]  => любой символ НЕ из набора в []: [a..zA..z]
-(...)   => выделение группы: (\d+\w+)
-\       => экранирование
-|       => логическое ИЛИ - вернёт первое соответствие
-\7      => 
-\A      => 
-\b      => 
-\B      => 
-\d      => 
-\D      => 
-\s      => 
-\S      => 
-\w      => 
-\W      => 
-\Z      => 
-\\  
-\   
-\
+# 💀 (000 123456789
+print(re.compile(r'(\(\d+).(\d+)').search(phoneNumbers))
+
+# 💀 000 - 123456789
+# print(re.compile(r'(\d+)[.]*(\d+)').search(phoneNumbers))
+
+# 💀 000123-456-789
+# print(re.compile(r'(\d+).(\d+).(\d+)').search(phoneNumbers))
+
+# 💀 (000) 123 456 789
+# print(re.compile(r'(\(\d+\).(\d+).(\d+))').search(phoneNumbers))
+# '''
+
+phoneRE = re.compile(r'\d+')
+phoneRELong = re.compile(r'(\d+).(\d+).(\d+).(\d+)')
+tmpOutputPhone = phoneRELong.search(phoneNumbers)
+# в phoneRE{Long} лежит ссылка на объект, созданный с помощью re.compile(), 
+# которому передана необработанная строка поискового шаблона 
+
+print(f'\vDEBUG OUTPUT: {tmpOutputPhone}\n')
+
+print(phoneRE.search(phoneNumbers)) # 123
+print((re.compile(r'\d+')).search(phoneNumbers)) # 123
+print(f'вывод с f-string: {phoneRE.search(phoneNumbers)}')
+# выдаст 123, так как '123-456-789' - первое совпадение
+print(f'вывод с f-string: {phoneRE.search(phoneNumbers)}')
+# <class 're.Match'>
+print(f're.search(var).group(): {(phoneRELong).search(phoneNumbers).group()}')
+# group() - выберет все группы, group(2) - только вторую (456)
+print(f're.search(var).group(2): {(phoneRELong).search(phoneNumbers).group(2)}')
+# вывод группировкой, <class 'str'>
+print(f're.search(var).groups: {(phoneRELong).search(phoneNumbers).groups()}')
+# вывод группировкой, <class 'tuple' >
+
+
+dcVallians = 'Joker, Mr. Freeze, Deathstroke, Bane, Catwoman, Scarecrow'
+dcHero = 'Superman, Batman, Wonder Woman, The Flash, Green Lantern, Aquaman'
+batmanGadget = 'Batpad, Batmobile, Batphone, Batarang, Batclaw'
+
+# ищем злыдней в dcVallians
+dcValliansFinder = re.compile(r'Catwoman|Deathstroke')
+# re.compile(r'Deathstroke|Catwoman') найдёт только первое совпадение в строке
+
+# действия ниже:
+# для объекта RE в dcValliansFinder применяется метод search()
+# которому передаётся объект со строкой в dcVallians
+# если что-то будет найдено, то вернётся объект Match
+print(dcValliansFinder.search(dcVallians))
+print(re.compile(r'Catwoman|Deathstroke').search(dcVallians))
+# <re.Match object; span=(19, 30), match='Deathstroke'>
+# для объекта Match имеется метод group(), который возвращает
+# содержимое match
+print(f'{dcValliansFinder.search(dcVallians).group()}')
+# Deathstroke
+
+'''
+print('\v')
+trainStr = 'ha@ha-ha,ha&ha'
+trainRE = re.compile(r'(ha.)*')  # ha@ha-ha,ha&
+trainRE = re.compile(r'(ha(.)?)+')  # ha@ha-ha,ha&ha
+trainRE = re.compile(r'(ha(.)?){1,}')  # ha@ha-ha,ha&ha
+trainRE = re.compile(r'(ha(.)?){1,}?')  # ha@
+training = trainRE.search(trainStr).group()
+
+print('+---RegEx-----+---- Result ---+')
+print("(ha.)*        |", re.compile(r'(ha.)*').search(trainStr).group())
+print("(ha(.)?)+     |", re.compile(r'(ha(.)?)+').search(trainStr).group())
+print("(ha(.)?){1,}  |", re.compile(r'(ha(.)?){1,}').search(trainStr).group())
+print("(ha(.)?){1,}? |", re.compile(r'(ha(.)?){1,}?').search(trainStr).group())
+print('+-------------+---------------+')
+# '''
+
+
+''' памятка по синтаксису RE
+.       =>  любой символ, кроме \n `
+^       =>  начало строки
+$       =>  конец строки
+*       =>  повторение RE, от 0 до бесконечности
++       =>  повторение RE, от 1 до бесконечности
+?* ?+   =>  нежадные версии ( * ) и ( + ) 
+?       =>  предшествующая знаку группа встречается не более 1 раза
+{...}   =>  повторение RE от m до n раз: (RE){m, n}
+[...]   =>  любой символ из набора в []: [a..zA..z]
+[^...]  =>  любой символ НЕ из набора в []: [a..zA..z]
+(...)   =>  выделение группы: (\d+\w+)
+\       =>  экранирование
+|       =>  логическое ИЛИ - вернёт первое соответствие
+\7      =>    
+\A      =>    
+\b      =>    
+\B      =>    
+\d      =>    
+\D      =>    
+\s      =>    
+\S      =>    
+\w      =>    
+\W      =>    
+\Z      =>    
+\\      =>    
+\       =>    
+\       =>    
 #'''
-

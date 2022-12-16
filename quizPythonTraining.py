@@ -51,7 +51,8 @@ print('id_(q[1][2]-6):', id(q[1][2]), '<-', q[1][2])
 print('id_foo(x[0][0]-d):', id(foo([0][0])), '<-', z, '<->', foo([0][0]))
 # '''
 
-# ''' Q[006] Какой тип у (X)
+''' Q[006] Какой тип у (X)
+from math import sqrt
 x = {x for x in range(3)}
 print(type(x))
 # '''
@@ -240,7 +241,7 @@ for d in range(1, 10000):
 # '''
 
 
-# ''' CHESS
+''' CHESS
 
 HEIGHT = 8
 WEIGHT = 8
@@ -333,6 +334,7 @@ def blackPlace():
 #         i += 1
 
 # print(multiplyIndex(8))
+# '''
 
 ''' [Tool] Multiplication table generator
 def multiplication_table_generator():
@@ -359,13 +361,12 @@ print(multiplication_table_user_mode(4, 10))
 # ''' 
 
 
+
+''' Поиск НОД
 # a = int(input('Enter first: '))
 # b = int(input('Enter second: '))
-a = 64187263498761287364761425199182531
-b = 12765497168234781629351234147122
-i = 1
 
-# # первый вариает
+# # первый вариант
 # while b != 0:
 #     i += 1
 #     print(f'Debug case [{i}] start> {a}:{b}')
@@ -376,15 +377,63 @@ i = 1
 #         print(f'Debug case ELSE> {a}:{b}')
 #     print(f'{a+b}, {i}')
 
-while a >= 0 or b >= 0:
-    i += 1
-    print(f'DEBUG case [{i}] start> {a}:{b}')
+# while a >= 0 or b >= 0:
+#     i += 1
+#     print(f'DEBUG case [{i}] start> {a}:{b}')
 
-    if a > b:
-        print(f'DEBUG case preIF> {a}:{b}')
-        a %= b
-        print(f'DEBUG case IF> {a}:{b}')
-    elif b > a:
-        b %= a
-        print(f'DEBUG case ELSE> {a}:{b}')
-print(f'result = {a+b}, count = {i}')
+#     if a > b:
+#         print(f'DEBUG case preIF> {a}:{b}')
+#         a %= b
+#         print(f'DEBUG case IF> {a}:{b}')
+#     elif b > a:
+#         b %= a
+#         print(f'DEBUG case ELSE> {a}:{b}')
+# print(f'result = {a+b}, count = {i}')
+
+#  Отличный вариант
+a = int(input("Enter first any number: "))
+b = int(input("Enter second any number: "))
+i = 1 
+while b!= 0:
+    a %= b
+    print(f'Debug case {i}:  {a} : {b}')
+    a, b = b, a
+    i += 1
+print(a)
+# ''' 
+
+# ''' Поиск простых чисел
+# inputInt = int(input("Num-num: "))
+inputInt = 10_000_000
+i = 1
+# for inputInt in range(3, inputInt + 1, 2):
+for inputInt in range(inputInt+1):
+    if  inputInt % 2 != 0 and \
+        inputInt % 3 != 0 and \
+        inputInt % 5 != 0 and \
+        inputInt % 7 != 0:
+        i += 1
+print(i)
+# '''
+
+'''
+from math import sqrt
+
+# n = int(input("n= "))
+n = 1000000
+lst = [2]
+s = 0
+for i in range(3, n+1, 2):
+    s += 1
+    if (i > 10) and (i % 10 == 5):
+        continue
+    for j in lst:
+        if j > int((sqrt(i)) + 1):
+            # lst.append(i)
+            break
+        if (i % j == 0):
+            break
+    # else:
+    #     lst.append(i)
+print (s)
+# '''
