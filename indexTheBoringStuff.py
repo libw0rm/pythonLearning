@@ -1886,7 +1886,6 @@ print(f're.search(var).groups: {(phoneRELong).search(phoneNumbers).groups()}')
 # вывод группировкой, <class 'tuple' >
 # '''
 
-
 '''
 dcVallians = 'Joker, Mr. Freeze, Deathstroke, Bane, Catwoman, Scarecrow'
 dcHero = 'Superman, Batman, Wonder Woman, The Flash, Green Lantern, Aquaman'
@@ -1983,14 +1982,14 @@ print(atRegex.findall('The cat in the hat sat on the flat mat.'))
 # ['cat', 'hat', 'sat', 'flat', 'mat']
 # '''
 
-# ''' [ATBF_238] жадный поиск с помощью (.*)
+''' [ATBF_238] жадный поиск с помощью (.*)
 nameRegex = re.compile(r'First Name: (.*) Last Name: (.*)')
 mo = nameRegex.search('First Name: Tim Last Name: Burton')
 print(mo.group())   # First Name: Tim Last Name: Burton
 print(mo.group(1))  # Tim
 print(mo.group(2))  # Burton
 
-# ''' [ATBF_238] нежадный поиск с помощью (.*)
+# [ATBF_238] нежадный поиск с помощью (.*)
 # nogreedy
 nogreedyRedex = re.compile(r'<.*?>')
 mo = nogreedyRedex.search('<To serve man> for dinner.>')
@@ -1999,9 +1998,8 @@ print(mo.group())  # <To serve man>
 greedyRedex = re.compile(r'<.*>')
 mo = greedyRedex.search('<To serve man> for dinner.>')
 print(mo.group())  # <To serve man> for dinner.>
-# '''
 
-# ''' [ATBF_238] поиск символов новой строки с помощью точки
+# [ATBF_238] поиск символов новой строки с помощью точки
 rules = 'Serve the public trust.\nProtect the innocent.\nUphold the law.'
 noNewlineRegex = re.compile('.*')
 print(noNewlineRegex.search(rules).group())
@@ -2011,20 +2009,44 @@ newlineRegex = re.compile('.*', re.DOTALL)
 print(newlineRegex.search(rules).group())
 # Serve the public trust. # Protect the innocent. # Uphold the law.
 
-# ''' [ATBF_240] поиск без учёта регистра
-
+# [ATBF_240] поиск без учёта регистра
+# различные варианты поиска слова с разным регистром
 # regexCop_1 = re.compile('RoboCop')
 # regexCop_2 = re.compile('roboCop')
 # regexCop_3 = re.compile('RobocoP')
 # regexCop_4 = re.compile('rObOcOp')
 
-robocop = re.compile('robocop', re.I)
+robocop = re.compile('robocop', re.I)  # поиск без учёта регистра
 print(robocop.search('RoboCop is part man, part machine, all cop.').group())
 # RoboCop
 
 print(robocop.search('ROBOCOP protects the innocent.').group()) # ROBOCOP
 print(robocop.search(
-    'Al, why does your programming book talk about robocop so much?').group()) # robocop
+    'Al, why does your programming book talk about robocop so much?').group()) 
+    # robocop
+# '''
+
+# ''' [ATBF_241] замена строк с помощью метода sub()
+# методу sub() необходимо передать 2 аргумента:
+# 1 аргумент - на что меняем
+# 2 аргумент - где, в какой строке меняем
+
+nameRegex = re.compile(r'Agent \w+', re.I)
+print(nameRegex.sub(
+    'SECRET', 'Agent Alice gave the secret documents to Agent Bob.'))
+# SECRET gave the secret documents to SECRET.
+
+agentNamesRegex = re.compile('agent (\w)\w*', re.I)
+print(agentNamesRegex.sub(r'\1****', 'Agent Alice told Agent Carol that Agent Eve knew Agent Bob was a double agent.'))
+# A**** told C**** that E**** knew B**** was a double agent.
+# '''
+
+
+
+
+
+
+
 
 
 ''' Review of Regex Symbols
