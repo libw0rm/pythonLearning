@@ -1931,8 +1931,18 @@ xmasRegex = re.compile(r'\d+\s\w+')
 print(xmasRegex.findall(xmasNeeds))
 # '''
 
+# ''' [ATBF_236] Создание создание союственных символьных классов
+vowelRegex = re.compile(r'[aeiouAEIOU.]')
+print(vowelRegex.findall('Robocop eats baby food. BABY FOOD'))
+# ['o', 'o', 'o', 'e', 'a', 'a', 'o', 'o', 'A', 'O', 'O']
+vowelRegex = re.compile(r'[^aeiouAEIOU.]')
+print(vowelRegex.findall('Robocop eats baby food. BABY FOOD'))
 
+# '''
 
+# '''
+
+# '''
 
 
 ''' памятка по синтаксису RE
