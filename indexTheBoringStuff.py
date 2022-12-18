@@ -20,6 +20,7 @@ import time
 import sys
 import random
 import re
+import pyperclip
 
 # #  (52) "Ваша первая программа"
 # print('Hello World!\n')
@@ -2026,7 +2027,7 @@ print(robocop.search(
     # robocop
 # '''
 
-# ''' [ATBF_241] замена строк с помощью метода sub()
+''' [ATBF_241] замена строк с помощью метода sub()
 # методу sub() необходимо передать 2 аргумента:
 # 1 аргумент - на что меняем
 # 2 аргумент - где, в какой строке меняем
@@ -2041,11 +2042,21 @@ print(agentNamesRegex.sub(r'\1****', 'Agent Alice told Agent Carol that Agent Ev
 # A**** told C**** that E**** knew B**** was a double agent.
 # '''
 
+# ''' [ATBF_241] сложные регулярные выражения
+phoneRegex = re.compile(r'((\d{3} |\(\d{3}\))?(\s | - |\.)?\d{3}(\s | - |\.)\d{4}(\s*(ext | x | ext.)\s *\d{2, 5})?)')
+# '''
 
+phoneRegex = re.compile(r'''(
+    (\d{3}|\(\d{3}\))?              # код региона
+    (\s|-|\.)?                      # разделитель
+    \d{3}                           #первые три цифры
+    (\s|-|\.)                       # разделитель
+    \d{4}                           # последние 4 цифры
+    (\s*(ext|x|ext.)\s*\d{2, 5})?   # добавочный номер
+    )''', re.VERBOSE)
 
-
-
-
+# ''' [ATBF_242] комбинация констант IGNORECASE, DOTALL, VERBOSE
+someRegexValue = re.compile('foo', re.I | re.DOTALL | re.VERBOSE)
 
 
 
@@ -2065,9 +2076,9 @@ The . matches any character, except newline characters.
 \D, \W, and S match anything except a digit, word, or space char, respectively.
 [abc] matches any character between the brackets(such as a, b, or c).
 [^ abc] matches any character that isn’t between the brackets.
-# '''
 
-''' памятка по синтаксису RE
+
+Памятка по синтаксису RegEx
 .       => любой символ, кроме '\n'
 ^SPAM   => строка начинается со SPAM
 spam$   => строка заканчивается символами spam
