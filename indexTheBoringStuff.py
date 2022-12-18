@@ -195,7 +195,8 @@ import re
 # if guess == secretNumber:
 #     print('Отлично! Число отгадано за ' + str(guessesTaken) + ' попыток!')
 # else:
-#     print('Та-дааам! Всё, котлетки кончились! Добро пожаловать на костёр 😈 Было загадано число ' + str(secretNumber))
+#     print('Та-дааам! Всё, котлетки кончились! Добро пожаловать на костёр 😈 \
+#           Было загадано число ' + str(secretNumber))
 
 
 # # [ATBF_94] Игра RPC Game
@@ -1943,7 +1944,7 @@ print(vowelRegex.findall('RoboCop eats baby food. BABY FOOD'))
 # ['R', 'b', 'C', 'p', ' ', 't', 's', ' ', 'b', 'b', 'y', ' ', 'f', 'd', ' ', 'B', 'B', 'Y', ' ', 'F', 'D']
 # '''
 
-# ''' [ATBF_236] Символы caret/circumflex(^) и dollor($)
+''' [ATBF_236-237] Символы caret/circumflex(^) и dollor($)
 beginsWithHello = re.compile(r'Hello')
 print(beginsWithHello.search('Hello, World!'))
 # <re.Match object; span=(0, 5), match='Hello'>
@@ -1969,37 +1970,102 @@ print(wholeStringIsNum.search('1234xyz567890') == None)
 # True
 
 print(wholeStringIsNum.search('123 456 7890') == None)
-# True
-
-# '''
+# True 
 # '''
 
+''' [ATBF_237] Символ подстановки (.)
+atRegex = re.compile(r'.at')
+print(atRegex.findall('The cat in the hat sat on the flat mat.'))
+# ['cat', 'hat', 'sat', 'lat', 'mat']
 
+atRegex = re.compile(r'\S?.at') # для вывода любого слова *lat
+print(atRegex.findall('The cat in the hat sat on the flat mat.'))
+# ['cat', 'hat', 'sat', 'flat', 'mat']
+# '''
+
+# ''' [ATBF_238] жадный поиск с помощью (.*)
+nameRegex = re.compile(r'First Name: (.*) Last Name: (.*)')
+mo = nameRegex.search('First Name: Tim Last Name: Burton')
+print(mo.group())   # First Name: Tim Last Name: Burton
+print(mo.group(1))  # Tim
+print(mo.group(2))  # Burton
+
+# ''' [ATBF_238] нежадный поиск с помощью (.*)
+# nogreedy
+nogreedyRedex = re.compile(r'<.*?>')
+mo = nogreedyRedex.search('<To serve man> for dinner.>')
+print(mo.group())  # <To serve man>
+# greedy
+greedyRedex = re.compile(r'<.*>')
+mo = greedyRedex.search('<To serve man> for dinner.>')
+print(mo.group())  # <To serve man> for dinner.>
+# '''
+
+# ''' [ATBF_238] поиск символов новой строки с помощью точки
+rules = 'Serve the public trust.\nProtect the innocent.\nUphold the law.'
+noNewlineRegex = re.compile('.*')
+print(noNewlineRegex.search(rules).group())
+# Serve the public trust.
+
+newlineRegex = re.compile('.*', re.DOTALL)
+print(newlineRegex.search(rules).group())
+# Serve the public trust. # Protect the innocent. # Uphold the law.
+
+# ''' [ATBF_240] поиск без учёта регистра
+
+# regexCop_1 = re.compile('RoboCop')
+# regexCop_2 = re.compile('roboCop')
+# regexCop_3 = re.compile('RobocoP')
+# regexCop_4 = re.compile('rObOcOp')
+
+robocop = re.compile('robocop', re.I)
+print(robocop.search('RoboCop is part man, part machine, all cop.').group())
+# RoboCop
+
+print(robocop.search('ROBOCOP protects the innocent.').group()) # ROBOCOP
+print(robocop.search(
+    'Al, why does your programming book talk about robocop so much?').group()) # robocop
+
+
+''' Review of Regex Symbols
+The ? matches zero or one of the preceding group.
+The * matches zero or more of the preceding group.
+The + matches one or more of the preceding group.
+The {n} matches exactly n of the preceding group.
+The {n, } matches n or more of the preceding group.
+The {, m} matches 0 to m of the preceding group.
+The {n, m} matches at least n and at most m of the preceding group.
+{n, m}? or *? or +? performs a non-greedy match of the preceding group.
+^spam means the string must begin with spam.
+spam$ means the string must end with spam.
+The . matches any character, except newline characters.
+\d, \w, and s match a digit, word, or space character, respectively.
+\D, \W, and S match anything except a digit, word, or space char, respectively.
+[abc] matches any character between the brackets(such as a, b, or c).
+[^ abc] matches any character that isn’t between the brackets.
+# '''
 
 ''' памятка по синтаксису RE
-.       =>  любой символ, кроме '\n'
-^       =>  начало строки
-$       =>  конец строки
-*       =>  повторение RE, от 0 до бесконечности
-+       =>  повторение RE, от 1 до бесконечности
-?* ?+   =>  нежадные версии ( * ) и ( + ) 
-?       =>  предшествующая знаку группа встречается не более 1 раза
-{...}   =>  повторение RE от m до n раз: (RE){m, n}
-[...]   =>  любой символ из набора в []: [a..zA..z]
-[^...]  =>  любой символ НЕ из набора в []: [a..zA..z]
-(...)   =>  выделение группы: (\d+\w+)
-\       =>  экранирование
-|       =>  логическое ИЛИ - вернёт первое соответствие
-\7      =>    
-\A      =>    
-\b      =>    
-\B      =>    
-\d      =>    
-\D      =>    
-\s      =>    
-\S      =>    
-\w      =>    
-\W      =>    
-\Z      =>    
-\\      =>  
+.       => любой символ, кроме '\n'
+^SPAM   => строка начинается со SPAM
+spam$   => строка заканчивается символами spam
+*       => 0 или произвольное кол-во вхождений предшествующей группы
++       => 1 или несколько вхождений предшествующей группы
+?* ?+   => нежадные версии ( * ) и ( + ) 
+?       => предшествующая знаку группа встречается от 0 до 1 раза
+{n}     => ровно n вхождений предшествующей группы
+{n,}    => n или более вхождений предшествующей группы
+{,m}    => отсутствие или более вхождений предшествующей группы
+{n,m}   => не менее чем n  и не более чем m вхождений
+[abc]   => любой символ из набора в []
+[^abc]  => любой символ НЕ из набора в []
+(...)   => выделение группы: (\d+\w+)
+\       => экранирование
+|       => логическое ИЛИ - вернёт первое соответствие
+\d      => одиночный цифровой символ
+\D      => одиночный НЕ цифровой символ
+\s      => одиночный пробельный символ
+\S      => одиночный НЕ пробельный символ
+\w      => одиночный алфавитно-цифровой символ
+\W      => одиночный НЕ алфавитно-цифровой или пробельный символы 
 #'''
