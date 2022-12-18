@@ -1828,6 +1828,7 @@ message = 'Call•me•back•at•number•415-666-1313•\
 # print(moTwo.group())    # 415-666-1313
 # print(moThree.group())  # (415)-666-131
 
+''' примитивные способы поиска с RE
 phoneNumbers = '123-456-789\
                 123456789\
                 (000)-123-456-789\
@@ -1836,18 +1837,19 @@ phoneNumbers = '123-456-789\
                 000123-456-789\
                 (000) 123 456 789'
 
-# ''' примитивные способы поиска с RE
 # 🤘 123-456-789
 print(re.compile(r'(\d+.)*').search(phoneNumbers))
 
 # 💀 123456789
-print(re.compile(r'\d+').search(phoneNumbers))
+# print(re.compile(r'\d+').search(phoneNumbers))
 
 # 🤘 (000)-123-456-789
 print(re.compile(r'(\(\d+\)).(\d+.)(\d+).(\d+)').search(phoneNumbers))
+print(re.compile(r'(\(\d+\)).(\d+.)(\d+).(\d+)').findall(phoneNumbers))
+# [('(000)', '123-', '456', '789'), ('(000)', '123 ', '456', '789')]
 
 # 💀 (000 123456789
-print(re.compile(r'(\(\d+).(\d+)').search(phoneNumbers))
+# print(re.compile(r'(\(\d+).(\d+)').search(phoneNumbers))
 
 # 💀 000 - 123456789
 # print(re.compile(r'(\d+)[.]*(\d+)').search(phoneNumbers))
@@ -1857,7 +1859,6 @@ print(re.compile(r'(\(\d+).(\d+)').search(phoneNumbers))
 
 # 💀 (000) 123 456 789
 # print(re.compile(r'(\(\d+\).(\d+).(\d+))').search(phoneNumbers))
-# '''
 
 phoneRE = re.compile(r'\d+')
 phoneRELong = re.compile(r'(\d+).(\d+).(\d+).(\d+)')
@@ -1879,8 +1880,10 @@ print(f're.search(var).group(2): {(phoneRELong).search(phoneNumbers).group(2)}')
 # вывод группировкой, <class 'str'>
 print(f're.search(var).groups: {(phoneRELong).search(phoneNumbers).groups()}')
 # вывод группировкой, <class 'tuple' >
+# '''
 
 
+'''
 dcVallians = 'Joker, Mr. Freeze, Deathstroke, Bane, Catwoman, Scarecrow'
 dcHero = 'Superman, Batman, Wonder Woman, The Flash, Green Lantern, Aquaman'
 batmanGadget = 'Batpad, Batmobile, Batphone, Batarang, Batclaw'
@@ -1900,14 +1903,16 @@ print(re.compile(r'Catwoman|Deathstroke').search(dcVallians))
 # содержимое match
 print(f'{dcValliansFinder.search(dcVallians).group()}')
 # Deathstroke
+print(re.compile(r'Catwoman|Deathstroke').findall(dcVallians))
+# ['Deathstroke', 'Catwoman']
 
-'''
-print('\v')
+# # (не)жадный поиск
+# print('\v')
 trainStr = 'ha@ha-ha,ha&ha'
 trainRE = re.compile(r'(ha.)*')  # ha@ha-ha,ha&
 trainRE = re.compile(r'(ha(.)?)+')  # ha@ha-ha,ha&ha
 trainRE = re.compile(r'(ha(.)?){1,}')  # ha@ha-ha,ha&ha
-trainRE = re.compile(r'(ha(.)?){1,}?')  # ha@
+trainRE = re.compile(r'(ha(.)?){1,}?')  # ha@ пример нежадного поиска
 training = trainRE.search(trainStr).group()
 
 print('+---RegEx-----+---- Result ---+')
@@ -1918,9 +1923,20 @@ print("(ha(.)?){1,}? |", re.compile(r'(ha(.)?){1,}?').search(trainStr).group())
 print('+-------------+---------------+')
 # '''
 
+# ''' пример работы символьных классов
+xmasNeeds = '12 drummers, 11 pipers, 10 lords, 9 ladies, 8 maids, \
+            7 swans, 6 geese, 5 rings, 4 birds, 3 hens, 2 doves, \
+            1 partridge'
+xmasRegex = re.compile(r'\d+\s\w+')
+print(xmasRegex.findall(xmasNeeds))
+# '''
+
+
+
+
 
 ''' памятка по синтаксису RE
-.       =>  любой символ, кроме \n `
+.       =>  любой символ, кроме '\n'
 ^       =>  начало строки
 $       =>  конец строки
 *       =>  повторение RE, от 0 до бесконечности
@@ -1944,7 +1960,5 @@ $       =>  конец строки
 \w      =>    
 \W      =>    
 \Z      =>    
-\\      =>    
-\       =>    
-\       =>    
+\\      =>  
 #'''

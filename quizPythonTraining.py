@@ -402,38 +402,53 @@ while b!= 0:
 print(a)
 # ''' 
 
-# ''' Поиск простых чисел
+''' Поиск простых чисел
 # inputInt = int(input("Num-num: "))
-inputInt = 10_000_000
-i = 1
-# for inputInt in range(3, inputInt + 1, 2):
-for inputInt in range(inputInt+1):
+inputInt = 10
+list = []
+tuple = ()
+k = 0
+i = 0
+for inputInt in range(3, inputInt + 1, 2):
+# for inputInt in range(1, inputInt):
+    k += 1
     if  inputInt % 2 != 0 and \
         inputInt % 3 != 0 and \
         inputInt % 5 != 0 and \
         inputInt % 7 != 0:
-        i += 1
-print(i)
+            list.append(inputInt)
+            i += 1
+print(list)
 # '''
 
-'''
+''' Проверка простых чисел
 from math import sqrt
 
 # n = int(input("n= "))
-n = 1000000
-lst = [2]
-s = 0
+n = 20
+lst = []
+score = 0
 for i in range(3, n+1, 2):
-    s += 1
+    print("DEBUG case", i)
+    print(lst)
+    score += 1
     if (i > 10) and (i % 10 == 5):
         continue
+    print("DEBUG case in {first if}:", i)
     for j in lst:
         if j > int((sqrt(i)) + 1):
-            # lst.append(i)
+            lst.append(i)
+            print("DEBUG case in {lst.append}:" , i)
             break
         if (i % j == 0):
+            print("DEBUG case in {if = i%j>break}: ", i)
             break
-    # else:
-    #     lst.append(i)
-print (s)
+    else:
+        lst.append(i)
+print (f'score: {score} >>> list: {lst}')
+# '''
+
+# '''
+
+# '''
 # '''
