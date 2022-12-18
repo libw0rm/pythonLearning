@@ -16,7 +16,10 @@
 # Например: [ATBF_32-34]: добавлен код со страниц 32-34.
 #
 #
-
+import time
+import sys
+import random
+import re
 
 # #  (52) "Ваша первая программа"
 # print('Hello World!\n')
@@ -1808,7 +1811,7 @@ for i in range(len(message)):
 print('Done')
 #'''
 
-#''' [ATBF_225] Поиск номера с помощью RegEx
+''' [ATBF_225] Поиск номера с помощью RegEx
 import re
 
 message = 'Call•me•back•at•number•415-666-1313•\
@@ -1828,7 +1831,7 @@ message = 'Call•me•back•at•number•415-666-1313•\
 # print(moTwo.group())    # 415-666-1313
 # print(moThree.group())  # (415)-666-131
 
-''' примитивные способы поиска с RE
+# примитивные способы поиска с RE
 phoneNumbers = '123-456-789\
                 123456789\
                 (000)-123-456-789\
@@ -1921,9 +1924,8 @@ print("(ha(.)?)+     |", re.compile(r'(ha(.)?)+').search(trainStr).group())
 print("(ha(.)?){1,}  |", re.compile(r'(ha(.)?){1,}').search(trainStr).group())
 print("(ha(.)?){1,}? |", re.compile(r'(ha(.)?){1,}?').search(trainStr).group())
 print('+-------------+---------------+')
-# '''
 
-# ''' пример работы символьных классов
+# пример работы символьных классов
 xmasNeeds = '12 drummers, 11 pipers, 10 lords, 9 ladies, 8 maids, \
             7 swans, 6 geese, 5 rings, 4 birds, 3 hens, 2 doves, \
             1 partridge'
@@ -1931,18 +1933,47 @@ xmasRegex = re.compile(r'\d+\s\w+')
 print(xmasRegex.findall(xmasNeeds))
 # '''
 
-# ''' [ATBF_236] Создание создание союственных символьных классов
+''' [ATBF_236] Создание создание собственных символьных классов
 vowelRegex = re.compile(r'[aeiouAEIOU.]')
-print(vowelRegex.findall('Robocop eats baby food. BABY FOOD'))
-# ['o', 'o', 'o', 'e', 'a', 'a', 'o', 'o', 'A', 'O', 'O']
+print(vowelRegex.findall('RoboCop eats baby food. BABY FOOD'))
+# ['o', 'o', 'o', 'e', 'a', 'a', 'o', 'o', '.', 'A', 'O', 'O']
+
 vowelRegex = re.compile(r'[^aeiouAEIOU.]')
-print(vowelRegex.findall('Robocop eats baby food. BABY FOOD'))
-
+print(vowelRegex.findall('RoboCop eats baby food. BABY FOOD'))
+# ['R', 'b', 'C', 'p', ' ', 't', 's', ' ', 'b', 'b', 'y', ' ', 'f', 'd', ' ', 'B', 'B', 'Y', ' ', 'F', 'D']
 # '''
 
-# '''
+# ''' [ATBF_236] Символы caret/circumflex(^) и dollor($)
+beginsWithHello = re.compile(r'Hello')
+print(beginsWithHello.search('Hello, World!'))
+# <re.Match object; span=(0, 5), match='Hello'>
+print(beginsWithHello.search('He said hello') == None)
+# True
+
+endsWithNumber = re.compile(r'\d$')
+print(endsWithNumber.search('Guide to the Number 42'))
+# <re.Match object; span=(21, 22), match='2'>
+
+endsWithNumber = re.compile(r'\d+$') # добавим (+) для жадности 😈
+print(endsWithNumber.search('Guide to the Number 42'))
+# <re.Match object; span=(20, 22), match='42'>
+
+print(endsWithNumber.search('Guide to the Number forty-two') == None)
+# True
+
+wholeStringIsNum = re.compile(r'^\d+$')
+print(wholeStringIsNum.search('1234567890'))
+# <re.Match object; span=(0, 10), match='1234567890'>
+
+print(wholeStringIsNum.search('1234xyz567890') == None)
+# True
+
+print(wholeStringIsNum.search('123 456 7890') == None)
+# True
 
 # '''
+# '''
+
 
 
 ''' памятка по синтаксису RE
