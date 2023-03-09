@@ -2059,55 +2059,53 @@ print(agentNamesRegex.sub(r'\1****', 'Agent Alice told Agent Carol that Agent Ev
 someRegexValue = re.compile('foo', re.I | re.DOTALL | re.VERBOSE)
 #'''
 
-# 👍 [ATBF_244] phoneAndEmail
-# phoneAndEmail - находит телефонные номера
-# и адреса электронной почты в буфере обмена
 
-# TODO #1 создать RegEx для поиска телефонов (+000 123 456-7890)
-phoneRegex = re.compile(r'''(
-    # (\+?\d{,3}.)?                 # 
-    (\d{3}|\(\d{3}\))?              # код страны или региона
-    (\s|-|\.)?                      # разделитель
-    (\d{3})                         # первые три цифры
-    (\s|-|\.)                       # разделитель
-    (\d{4})                         # последние 4 цифры
-    (\s*(ext|x|ext.)\s*(\d{2,5}))?  # добавочный номер
-    )''', re.VERBOSE)
+# # 👍 [ATBF_244] phoneAndEmail
+# # phoneAndEmail - находит телефонные номера
+# # и адреса электронной почты в буфере обмена
 
-# TODO #2 создать RegEx для поиска e-mail
-emailRegex = re.compile(r'''
-    (
-    [a-zA-Z0-9._%+-]+                    # имя пользователя
-    @                                    # собакенция
-    [a-zA-Z0-9.-]+                       # домен
-    (\.[a-zA-Z]{2,4}){1,2}                    # остальная часть адреса
-    )''', re.VERBOSE)
+# # TODO #1 создать RegEx для поиска телефонов (+000 123 456-7890)
+# phoneRegex = re.compile(r'''(
+#     # (\+?\d{,3}.)?                 # 
+#     (\d{3}|\(\d{3}\))?              # код страны или региона
+#     (\s|-|\.)?                      # разделитель
+#     (\d{3})                         # первые три цифры
+#     (\s|-|\.)                       # разделитель
+#     (\d{4})                         # последние 4 цифры
+#     (\s*(ext|x|ext.)\s*(\d{2,5}))?  # добавочный номер
+#     )''', re.VERBOSE)
 
-# TODO #3 найти совпадения в тексте из буфера обмена
-text = str(pyperclip.paste())
-matches = []
+# # TODO #2 создать RegEx для поиска e-mail
+# emailRegex = re.compile(r'''
+#     (
+#     [a-zA-Z0-9._%+-]+                    # имя пользователя
+#     @                                    # собакенция
+#     [a-zA-Z0-9.-]+                       # домен
+#     (\.[a-zA-Z]{2,4}){1,2}                    # остальная часть адреса
+#     )''', re.VERBOSE)
 
-for groups in phoneRegex.findall(text):
-    phoneNum = '-'.join([groups[1], groups[3], groups[5]])
-    print(phoneNum)
-    if groups[8] != '':
-        phoneNum += ' x' + groups[8]
-    matches.append(phoneNum)
-for groups in emailRegex.findall(text):
-    matches.append(groups[0])
+# # TODO #3 найти совпадения в тексте из буфера обмена
+# text = str(pyperclip.paste())
+# matches = []
 
-# TODO # 4 скопировать результаты в буфер обмена
-if len(matches) > 0:
-    pyperclip.copy('\n'.join(matches))
-    print('Copy in buffer:')
-    print('\n'.join(matches))
-else:
-    print('No phone numbers or email addresses found.')
+# for groups in phoneRegex.findall(text):
+#     phoneNum = '-'.join([groups[1], groups[3], groups[5]])
+#     print(phoneNum)
+#     if groups[8] != '':
+#         phoneNum += ' x' + groups[8]
+#     matches.append(phoneNum)
+# for groups in emailRegex.findall(text):
+#     matches.append(groups[0])
 
-# '''
+# # TODO # 4 скопировать результаты в буфер обмена
+# if len(matches) > 0:
+#     pyperclip.copy('\n'.join(matches))
+#     print('Copy in buffer:')
+#     print('\n'.join(matches))
+# else:
+#     print('No phone numbers or email addresses found.')
 
-
-
+# ''' []
 
 
 
@@ -2116,7 +2114,14 @@ else:
 
 
 
-''' Review of Regex Symbols
+
+
+
+
+
+
+'''
+Review of Regex Symbols
 The ? matches zero or one of the preceding group.
 The * matches zero or more of the preceding group.
 The + matches one or more of the preceding group.
@@ -2134,7 +2139,7 @@ The . matches any character, except newline characters.
 [^ abc] matches any character that isn’t between the brackets.
 
 Памятка по синтаксису RegEx
-.       => любой символ, кроме '\n'
+.       => любой символ, кроме \n
 ^SPAM   => строка начинается со SPAM
 spam$   => строка заканчивается символами spam
 *       => 0 или произвольное кол-во вхождений предшествующей группы
@@ -2156,6 +2161,4 @@ spam$   => строка заканчивается символами spam
 \S      => одиночный НЕ пробельный символ
 \w      => одиночный алфавитно-цифровой символ
 \W      => одиночный НЕ алфавитно-цифровой или пробельный символы 
-#'''
-
-
+'''
